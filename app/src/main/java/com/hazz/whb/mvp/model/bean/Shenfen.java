@@ -1,0 +1,16 @@
+package com.hazz.whb.mvp.model.bean;
+
+public class Shenfen {
+
+
+        /**
+         * username : 隔壁王老五
+         * profile_img : data/profile_img/profile.png
+         * level : 总裁
+         */
+
+        public String username;
+        public String profile_img;
+        public String level;
+
+}

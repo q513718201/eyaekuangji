@@ -4,12 +4,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <com.hazz.kuangji.widget.MyWebview
+    <com.hazz.whb.widget.MyWebview
         android:id="@+id/web_view"
         android:layout_marginBottom="-65dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.hazz.kuangji.widget.MyWebview>
+    </com.hazz.whb.widget.MyWebview>
 
 </LinearLayout>

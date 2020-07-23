@@ -28,7 +28,7 @@ android {
 
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "com.hazz.kuangji"
+        applicationId "com.hazz.whbR"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
@@ -73,7 +73,7 @@ android {
     // 自定义输出配置
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "kuangji${variant.versionName}_${variant.name}.apk"
+            outputFileName = "whb${variant.versionName}_${variant.name}.apk"
         }
     }
 

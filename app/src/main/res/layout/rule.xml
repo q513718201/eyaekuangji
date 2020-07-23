@@ -11,21 +11,21 @@
         layout="@layout/toolbar" />
 
     <androidx.core.widget.NestedScrollView
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:background="@color/color_white">
+        android:layout_marginTop="15dp"
+        android:background="@color/color_white"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
         <TextView
             android:id="@+id/tv_rule"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
+            android:paddingTop="10dp"
             android:textColor="@color/hintTextColor"
-            android:textSize="12sp"
-            android:paddingTop="20dp" />
+            android:textSize="12sp" />
 
     </androidx.core.widget.NestedScrollView>
 

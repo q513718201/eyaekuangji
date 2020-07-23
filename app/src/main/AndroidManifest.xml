@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.hazz.kuangji">
+    package="com.hazz.whb">
 
     <!-- 获取GSM网络信息状态，如当前的网络连接是否有效 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -20,7 +20,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.hazz.kuangji.MyApplication"
+        android:name="com.hazz.whb.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/kuangji_logo"
         android:label="@string/app_name"
@@ -32,7 +32,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="com.hazz.kuangji.ui.activity.LauncherActivity"
+            android:name="com.hazz.whb.ui.activity.LauncherActivity"
             android:theme="@style/AppLaunchTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,37 +41,37 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.hazz.kuangji.ui.activity.MainActivity" />
-        <activity android:name="com.hazz.kuangji.ui.activity.LoginActivity" />
-        <activity android:name="com.hazz.kuangji.ui.activity.ForgetPwdActivity" />
-        <activity android:name="com.hazz.kuangji.ui.activity.RegisterActivity" />
-        <activity android:name="com.hazz.kuangji.ui.activity.CountryActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.InviteActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.InviteRecordActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.SettingActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.SafeActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.NodeActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.TibiActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.TibiRecordActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.ChargeActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.ChargeRecordActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.TouziActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.TouziConfirmActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.FindZijinPwdActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.ModifyPwdActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.MsgListActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.MsgDescActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.IncomingActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.TouziRecordActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.ScanCoinAddressActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.ZujieActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.MingxiRecordActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.RuleActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.NodeSecondActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.RegistRuleActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.KuangjiDescActivity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.KuangjiDesc2Activity"/>
-        <activity android:name="com.hazz.kuangji.ui.activity.SignRecordActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.MainActivity" />
+        <activity android:name="com.hazz.whb.ui.activity.LoginActivity" />
+        <activity android:name="com.hazz.whb.ui.activity.ForgetPwdActivity" />
+        <activity android:name="com.hazz.whb.ui.activity.RegisterActivity" />
+        <activity android:name="com.hazz.whb.ui.activity.CountryActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.InviteActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.InviteRecordActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.SettingActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.SafeActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.NodeActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.TibiActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.TibiRecordActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.ChargeActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.ChargeRecordActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.TouziActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.TouziConfirmActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.FindZijinPwdActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.ModifyPwdActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.MsgListActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.MsgDescActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.IncomingActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.TouziRecordActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.ScanCoinAddressActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.ZujieActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.MingxiRecordActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.RuleActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.NodeSecondActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.RegistRuleActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.KuangjiDescActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.KuangjiDesc2Activity"/>
+        <activity android:name="com.hazz.whb.ui.activity.SignRecordActivity"/>
     </application>
 
 </manifest>

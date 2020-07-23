@@ -179,13 +179,23 @@
                     android:textSize="@dimen/_14_text_size" />
             </RelativeLayout>
 
+            <TextView
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*手机号一经注册不可修改"
+                android:textColor="@color/redF4"
+                android:textSize="10sp"
+                />
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rl_area"
                 android:layout_marginLeft="@dimen/margin_20"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginRight="@dimen/margin_20"
                 android:background="@drawable/mine_login_et_bg">
 
@@ -417,7 +427,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我已阅读同意"
-                    android:textColor="@color/color_black"
+                    android:textColor="@color/hintTextColor"
                     android:textSize="10sp" />
                 <TextView
                     android:paddingTop="15dp"
