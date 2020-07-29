@@ -13,7 +13,7 @@ public class GlideImageLoader extends ImageLoader {
     @Override
     public void displayImage(Context context, Object path, ImageView imageView) {
         RequestOptions options = new RequestOptions().
-                error(R.mipmap.banner1);
+                error(R.mipmap.br_home01);
         Glide.with(context).load(path).apply(options).into(imageView);
     }
 }

@@ -4,15 +4,18 @@ import android.content.Intent
 import com.hazz.whb.R
 import com.hazz.whb.base.BaseFragment
 import com.hazz.whb.mvp.contract.LoginContract
+import com.hazz.whb.mvp.model.bean.MyState
 import com.hazz.whb.mvp.model.bean.Node
 import com.hazz.whb.mvp.model.bean.Shenfen
 import com.hazz.whb.mvp.model.bean.UserInfo
+import com.hazz.whb.mvp.presenter.MinePresenter
 import com.hazz.whb.mvp.presenter.NodePresenter
 import com.hazz.whb.ui.activity.*
 import com.hazz.whb.utils.SPUtil
+import com.hazz.whb.utils.SToast
 import kotlinx.android.synthetic.main.fragment_mine.*
 
-class MineFragment : BaseFragment(), LoginContract.NodeView {
+class MineFragment : BaseFragment(), LoginContract.NodeView, LoginContract.MyStateView {
 
     override fun getShenfen(msg: Shenfen) {
 
@@ -39,7 +42,11 @@ class MineFragment : BaseFragment(), LoginContract.NodeView {
     }
 
     private var mNodePresenter: NodePresenter = NodePresenter(this)
-    private var userInfo: UserInfo? = null
+
+
+    private var minePresenter: MinePresenter = MinePresenter(this)
+    private var userInfo:UserInfo?=null
+    private var state=0
     override fun initView() {
 
 
@@ -70,8 +77,22 @@ class MineFragment : BaseFragment(), LoginContract.NodeView {
         layout_jiedian.setOnClickListener {
             startActivity(Intent(activity, NodeActivity::class.java))
         }
-        layout_team.setOnClickListener {
+        layout_incoming.setOnClickListener {
             startActivity(Intent(activity, IncomingActivity::class.java))
+        }
+        layout_auth.setOnClickListener {
+            when(state){
+                1->{
+                    SToast.showText("已实名")
+                    return@setOnClickListener
+                }
+                2->{
+                    SToast.showText("审核中")
+                    return@setOnClickListener
+                }
+            }
+            startActivity(Intent(activity, NameAuthActivity::class.java))
+
         }
         layout_about.setOnClickListener {
             startActivity(Intent(activity, RegistRuleActivity::class.java).putExtra("type",1))
@@ -81,8 +102,36 @@ class MineFragment : BaseFragment(), LoginContract.NodeView {
 
     override fun lazyLoad() {
         mNodePresenter.getShenfen()
+
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        minePresenter.myAsset()
+    }
 
+    override fun myState(msg: MyState) {
+        when(msg.real_name){
+            "0"->{
+                //未实名
+                state=0
+                tv_state.text="未认证"
+            }
+            "1"->{
+                //已实名
+                state=1
+                tv_state.text="已实名"
+            }
+            "2"->{
+                //审核zhong
+                state=2
+                tv_state.text="审核中"
+            }
+            "3"->{
+                state=3
+                tv_state.text="审核失败"
+            }
+        }
+    }
 }

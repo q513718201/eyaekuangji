@@ -1,14 +1,17 @@
 package com.hazz.whb.ui.activity
 
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.View
 import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.hazz.whb.R
 import com.hazz.whb.events.Index
 import com.hazz.whb.ui.fragment.*
+import com.hazz.whb.utils.ActivityManager
 import com.hazz.whb.utils.RxBus
 import com.tencent.bugly.Bugly
 import kotlinx.android.synthetic.main.activity_main_ruoyu_new.*
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener {
 
     private var builder: AlertDialog.Builder? = null
     private var dialog: AlertDialog? = null
-
+    private val mHits = LongArray(2)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +40,7 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener {
         // mPresenter= AppNewVersionPresenter(this)
         initFragment()
         mRG.setOnCheckedChangeListener(this)
-        Bugly.init(this, "", false)
+        Bugly.init(this, "b2e92dff41", false)
         RxBus.get().observerOnMain(this,Index::class.java) {
             checkFragment(1)
             mRbMining.isChecked = true
@@ -132,6 +135,17 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener {
             3 -> mRbShopCar.isChecked = true
             4 -> mRbOtc.isChecked = true
 
+        }
+    }
+
+    override fun onBackPressed() {
+        System.arraycopy(mHits, 1, mHits, 0, mHits.size - 1)
+        mHits[mHits.size - 1] = SystemClock.uptimeMillis()
+        if (mHits[0] >= SystemClock.uptimeMillis() - 500) {
+            super.onBackPressed()
+            ActivityManager.getInstance().finishAll()
+        } else {
+            Toast.makeText(applicationContext, "轻按两次退出", Toast.LENGTH_SHORT).show()
         }
     }
 

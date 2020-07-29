@@ -91,6 +91,7 @@
             android:paddingLeft="8dp"
             android:hint="@string/input_deal_pwd"
             android:inputType="textPassword"
+            android:maxLength="18"
            android:textColorHint="@color/hintTextColor"
             android:textColor="@color/blue"
             android:textSize="14sp" />
@@ -109,6 +110,7 @@
             android:background="@drawable/bg_gray_solid_5dp_coner"
             android:paddingLeft="8dp"
             android:hint="@string/mine_deal_password_again"
+            android:maxLength="18"
             android:inputType="textPassword"
             android:textColorHint="@color/hintTextColor"
             android:textColor="@color/blue"

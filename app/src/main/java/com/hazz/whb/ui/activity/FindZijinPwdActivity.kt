@@ -101,6 +101,11 @@ class FindZijinPwdActivity : BaseActivity(), LoginContract.LoginView {
                 SToast.showText("两次输入密码不一致")
                 return@setOnClickListener
             }
+
+            if (et_zijin_pwd.text.length<6||et_zijin_pwd_again.text.length<6) {
+                SToast.showText("两次输入密码不一致")
+                return@setOnClickListener
+            }
             if (userInfo != null) {
                 mLoginPresenter.forgetPwd(userInfo!!.username, userInfo!!.mobile, et_code.text.toString().trim(),
                         et_zijin_pwd.text.toString().trim(), et_zijin_pwd_again.text.toString().trim(), "2"

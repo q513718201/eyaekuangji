@@ -24,7 +24,7 @@ class MsgPresenter(view: LoginContract.MsgView) : BasePresenter<LoginContract.Ms
                 view.getMsg(tBaseResult.data!!)
             }
 
-        }, true)
+        }, false)
 
     }
 

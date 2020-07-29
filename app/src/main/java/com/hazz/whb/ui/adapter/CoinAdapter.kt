@@ -21,12 +21,12 @@ class CoinAdapter(layoutResId: Int, data: List<Kuangji.MachineListBean.ListBean>
         helper.setText(R.id.tv_name, item.product)
         helper.setText(R.id.tv_day, item.remain)
         if(item.revenue!=null){
-            helper.setText(R.id.tv_leiji, BigDecimalUtil.mul(item.revenue,"1",2)+"FIL")
+            helper.setText(R.id.tv_leiji, BigDecimalUtil.mul(item.revenue,"1",2)+"WHB")
         }
 
         helper.setText(R.id.tv_touru, BigDecimalUtil.mul(item.price,"1",2)+"USDT")
         if( item.yesterday!=null){
-            helper.setText(R.id.tv_yesterday, item.yesterday+"FIL")
+            helper.setText(R.id.tv_yesterday, item.yesterday+"WHB")
         }
 
 

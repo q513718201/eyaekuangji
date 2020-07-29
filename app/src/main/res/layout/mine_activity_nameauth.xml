@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/mToolbar"
+        layout="@layout/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:background="#F2F6FF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_10">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+
+            <LinearLayout
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/mImgDrop"
+                    android:paddingLeft="@dimen/margin_12"
+                    android:paddingTop="@dimen/margin_12"
+                    android:paddingBottom="@dimen/margin_12"
+                    android:text="国家/地区"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/_14_text_size" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_white_solid_5dp_coner"
+                    >
+
+                    <TextView
+                        android:id="@+id/mTvAreaCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:text="中国"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_14_text_size" />
+
+                    <ImageView
+                        android:id="@+id/mImgDrop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/bt_choose" />
+
+
+                </RelativeLayout>
+
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/mImgDrop"
+                    android:paddingLeft="@dimen/margin_12"
+                    android:paddingTop="@dimen/margin_12"
+                    android:paddingBottom="@dimen/margin_12"
+                    android:text="姓名"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/_14_text_size" />
+
+                <EditText
+                    android:id="@+id/mEtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="8dp"
+
+                    android:background="@drawable/bg_white_solid_5dp_coner"
+                    android:hint="请输入姓名"
+                    android:paddingLeft="@dimen/margin_16"
+                    android:paddingTop="@dimen/margin_12"
+                    android:paddingRight="@dimen/margin_16"
+                    android:paddingBottom="@dimen/margin_12"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:textColorHint="@color/hintTextColor"
+                    android:textSize="@dimen/_14_text_size"
+
+                    />
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/mImgDrop"
+                    android:paddingLeft="@dimen/margin_12"
+                    android:paddingTop="@dimen/margin_12"
+                    android:paddingBottom="@dimen/margin_12"
+                    android:text="证件类型"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/_14_text_size" />
+                <RelativeLayout
+                    android:id="@+id/rl_type"
+                    android:background="@drawable/bg_white_solid_5dp_coner"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp">
+
+                    <TextView
+                        android:id="@+id/mTvCardType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:text="身份证"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/_14_text_size" />
+
+
+                    <ImageView
+
+                        android:id="@+id/mImgDrop1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        android:src="@mipmap/bt_choose" />
+
+
+                </RelativeLayout>
+
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/mImgDrop"
+                    android:paddingLeft="@dimen/margin_12"
+                    android:paddingTop="@dimen/margin_12"
+                    android:paddingBottom="@dimen/margin_12"
+                    android:text="证件号"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/_14_text_size" />
+                <EditText
+                    android:id="@+id/mEtIdCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_white_solid_5dp_coner"
+                    android:hint="请输入证件号"
+                    android:paddingLeft="@dimen/margin_16"
+                    android:paddingTop="@dimen/margin_12"
+                    android:paddingRight="@dimen/margin_16"
+                    android:textColor="@color/color_black"
+                    android:paddingBottom="@dimen/margin_12"
+                    android:singleLine="true"
+                    android:textColorHint="@color/hintTextColor"
+                    android:textSize="@dimen/_14_text_size"
+
+                    />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/margin_14"
+                android:text="证件照正面"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/_14_text_size" />
+
+            <RelativeLayout
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/color_white"
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
+
+                <ImageView
+                    android:id="@+id/iv_upload_id1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <ImageView
+                    android:id="@+id/iv_upload_id1_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ic_pic"
+                    />
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_card2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/margin_14"
+                android:text="证件照反面"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/_14_text_size" />
+
+            <RelativeLayout
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/color_white"
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
+
+                <ImageView
+                    android:id="@+id/iv_upload_id2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <ImageView
+                    android:id="@+id/iv_upload_id2_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ic_pic"
+                    />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_card3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/margin_14"
+                android:text="手持证件照"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/_14_text_size" />
+
+            <RelativeLayout
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/color_white"
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
+
+                <ImageView
+                    android:id="@+id/iv_upload_id3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <ImageView
+                    android:id="@+id/iv_upload_id3_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ic_pic"
+                    />
+            </RelativeLayout>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/margin_14"
+                android:text="※认证费用：0.3USDT"
+                android:textColor="@color/redF4"
+                android:textSize="12dp"
+
+                />
+
+            <TextView
+                android:id="@+id/mTvConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/bg_blue_solid_5dp_coner"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/_16_text_size" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

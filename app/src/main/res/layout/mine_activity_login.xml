@@ -18,7 +18,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/logo_round"
+        android:src="@mipmap/logo"
 
         />
     <TextView
@@ -122,9 +122,8 @@
                     android:paddingLeft="30dp"
                     android:paddingRight="@dimen/margin_16"
                     android:textColorHint="@color/hintTextColor"
-                    android:hint="请输入用户名"
+                    android:hint="请输入用户名或手机号"
                     android:textSize="@dimen/_14_text_size"
-
                     android:singleLine="true"
                     android:inputType="text"
                     />

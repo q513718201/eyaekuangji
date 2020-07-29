@@ -12,11 +12,14 @@ import com.hazz.whb.base.BaseFragment
 import com.hazz.whb.mvp.contract.LoginContract
 import com.hazz.whb.mvp.model.Home
 import com.hazz.whb.mvp.model.bean.Msg
+import com.hazz.whb.mvp.model.bean.MyState
 import com.hazz.whb.mvp.presenter.HomePresenter
+import com.hazz.whb.mvp.presenter.MinePresenter
 import com.hazz.whb.mvp.presenter.MsgPresenter
 import com.hazz.whb.ui.activity.MsgDescActivity
 import com.hazz.whb.ui.activity.SignRecordActivity
 import com.hazz.whb.ui.adapter.HomeAdapter
+import com.hazz.whb.utils.SToast
 import com.hazz.whb.widget.GlideImageLoader
 import com.hazz.whb.widget.RewardItemDeco
 import com.hazz.whb.widget.TipsDialog
@@ -25,7 +28,7 @@ import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_new_home.*
 
-class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgView {
+class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgView, LoginContract.MyStateView {
 
 
     override fun getMsg(rows: List<Msg>) {
@@ -93,7 +96,7 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
             initBanner(adList!!)
         } else {
             adListDefault!!.clear()
-            adListDefault!!.add(R.mipmap.banner1)
+            adListDefault!!.add(R.mipmap.br_home01)
             initBannerDefault(adListDefault!!)
         }
 
@@ -124,8 +127,11 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
     private var tipsDialog: TipsDialog? = null
     private var viewsList: MutableList<View>? = mutableListOf()
     private var mCoinPresenter: MsgPresenter = MsgPresenter(this)
+    private var minePresenter: MinePresenter = MinePresenter(this)
+    private var state = 0
 
     override fun initView() {
+
         recycle_view.layoutManager = LinearLayoutManager(activity)//创建布局管理
         mAdapter = HomeAdapter(R.layout.item_home, null)
         recycle_view.adapter = mAdapter
@@ -143,7 +149,10 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
                 )
         )
 
+        ll.setOnClickListener {
 
+            SToast.showText("暂未开放")
+        }
 
         tv_qiandao.setOnClickListener {
             mHomePresenter.sign()
@@ -160,20 +169,20 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
 
             tipsDialog = TipsDialog(activity)
                     .setTitle("提示")
-                    .setContent("5年收益周期内，每日签到都可获得当日的收益。如期间出现漏签、断签等情况，" +
-                            "收益周期会相对应的向后顺延，即保证每位用户都可获得5年的总收益回报。")
+                    .setContent("300天周期内，每日签到都可获得当日的收益。如期间出现漏签，收益周期减少且不会发放收益。")
 
                     .rule()
 
 
             tipsDialog!!.show()
         }
-
     }
 
     override fun lazyLoad() {
+
         mCoinPresenter.getMsg()
         mHomePresenter.getHome()
+        // minePresenter.myAsset()
     }
 
     private fun initBanner(list: List<String>) {
@@ -210,6 +219,11 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
         banner.start()
     }
 
+    override fun onResume() {
+        super.onResume()
+        //  minePresenter.myAsset()
+    }
+
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
@@ -217,6 +231,35 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
             Log.d("junjun", "展示")
             mCoinPresenter.getMsg()
             mHomePresenter.getHome()
+            //  minePresenter.myAsset()
         }
     }
+
+    override fun myState(msg: MyState) {
+
+        when (msg.real_name) {
+            "0" -> {
+                //未实名
+                state = 0
+
+            }
+            "1" -> {
+                //已实名
+                state = 1
+
+            }
+            "2" -> {
+                //审核zhong
+                state = 2
+
+            }
+            "3" -> {
+                state = 3
+
+            }
+        }
+        mAdapter!!.setState(state)
+    }
 }
+
+

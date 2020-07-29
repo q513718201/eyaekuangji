@@ -1,6 +1,8 @@
 package com.hazz.whb.mvp.contract
 
+import com.hazz.whb.mvp.model.DuihuanRecord
 import com.hazz.whb.mvp.model.Home
+import com.hazz.whb.mvp.model.Image
 import com.hazz.whb.mvp.model.Xieyi
 import com.hazz.whb.mvp.model.bean.*
 import com.hazz.whb.net.BaseView
@@ -42,7 +44,11 @@ interface LoginContract {
         fun tibiSucceed(msg:String)
         fun tibiRecord(msg:TibiRecord)
     }
+    interface DuihuanView: BaseView {
 
+        fun duihuanSucceed(msg:String)
+        fun duihuanRecord(msg:DuihuanRecord)
+    }
     interface ShouyiView: BaseView {
 
         fun inComing(msg:InComing)
@@ -78,5 +84,16 @@ interface LoginContract {
 
         fun xieyi(msg:Xieyi)
         fun getSignRecord(msg:SignRecord)
+    }
+
+    interface MyStateView: BaseView {
+
+        fun myState(msg:MyState)
+    }
+
+    interface AuthView: BaseView {
+
+        fun uploadSucceed(msg: Image)
+        fun authSucceed(msg: String)
     }
 }

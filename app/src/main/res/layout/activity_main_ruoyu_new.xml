@@ -12,7 +12,7 @@
     <RadioGroup
         android:id="@+id/mRG"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@color/color_white"
         android:orientation="horizontal"
         android:weightSum="5"
@@ -20,36 +20,40 @@
         >
 
         <RadioButton
-            android:paddingTop="4dp"
+
             android:id="@+id/mRbMall"
             style="@style/rb_style"
             android:drawableTop="@drawable/tab_icon_main_select"
-            android:text="首页"/>
+            android:text="首页"
+
+            />
 
         <RadioButton
-            android:paddingTop="4dp"
+
             android:id="@+id/mRbMining"
             style="@style/rb_style"
             android:drawableTop="@drawable/tab_icon_goods_select"
             android:text="矿机"/>
 
         <RadioButton
-            android:paddingTop="4dp"
+
             android:id="@+id/mRbShopCar"
             style="@style/rb_style"
             android:drawableTop="@drawable/tab_icon_car_select"
             android:text="资产"/>
         <RadioButton
-            android:paddingTop="4dp"
+
             android:id="@+id/mRbHangqing"
             style="@style/rb_style"
             android:drawableTop="@drawable/tab_icon_hangqing_select"
-            android:text="行情"/>
+            android:text="行情"
+            android:textColor="@drawable/selector_home"
+            />
 
         <RadioButton
             android:id="@+id/mRbOtc"
             style="@style/rb_style"
-            android:paddingTop="4dp"
+
             android:drawableTop="@drawable/tab_icon_order_select"
             android:text="我的"/>
 

@@ -72,6 +72,9 @@
         <activity android:name="com.hazz.whb.ui.activity.KuangjiDescActivity"/>
         <activity android:name="com.hazz.whb.ui.activity.KuangjiDesc2Activity"/>
         <activity android:name="com.hazz.whb.ui.activity.SignRecordActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.NameAuthActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.DuihuanActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.DuihuanRecordActivity"/>
     </application>
 
 </manifest>

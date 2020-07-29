@@ -37,8 +37,8 @@ class SafeActivity : BaseActivity() {
     override fun start() {
         tv_login.setOnClickListener {
             startActivity(Intent(this,ModifyPwdActivity::class.java))
-
         }
+
 
         tv_zijin.setOnClickListener {
             startActivity(Intent(this,FindZijinPwdActivity::class.java))

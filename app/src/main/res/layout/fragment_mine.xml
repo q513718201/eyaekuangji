@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="192dp"
-        android:background="@mipmap/bg_top02"
+        android:background="@mipmap/bg_top03"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
@@ -109,17 +109,18 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="50dp"
-                    android:background="@drawable/mine_login_box_bg"
+
                     android:orientation="vertical"
                     android:paddingBottom="20dp"
                     tools:ignore="MissingConstraints">
 
                     <RelativeLayout
-                        android:id="@+id/layout_team"
+                        android:id="@+id/layout_auth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:layout_marginRight="15dp"
                         tools:ignore="DuplicateIds">
 
@@ -127,11 +128,56 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:drawableLeft="@mipmap/shouyi"
+                            android:drawableLeft="@mipmap/mine_shiming"
+                            android:drawablePadding="15dp"
+                            android:gravity="center"
+                            android:text="实名认证"
+                            android:textColor="@color/color_black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tv_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/tv"
+                            android:text="未认证"
+                            android:textColor="@color/blue"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:drawableRight="@mipmap/mine_icon_more"
+                            android:drawablePadding="12dp" />
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F2F6FF" />
+
+                    <RelativeLayout
+                        android:id="@+id/layout_incoming"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginRight="15dp"
+                        tools:ignore="DuplicateIds">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:drawableLeft="@mipmap/mine_incoming"
                             android:drawablePadding="15dp"
                             android:gravity="center"
                             android:text="我的收益"
-                            android:textColor="#666666"
+                            android:textColor="@color/color_black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -142,24 +188,28 @@
                             android:drawableRight="@mipmap/mine_icon_more"
                             android:drawablePadding="12dp" />
                     </RelativeLayout>
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F2F6FF" />
                     <RelativeLayout
                         android:id="@+id/layout_invite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:layout_marginRight="15dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:drawableLeft="@mipmap/yaoqing"
+                            android:drawableLeft="@mipmap/mine_invite"
                             android:drawablePadding="15dp"
                             android:gravity="center"
                             android:text="我的邀请"
-                            android:textColor="#666666"
+                            android:textColor="@color/color_black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -170,14 +220,18 @@
                             android:drawableRight="@mipmap/mine_icon_more"
                             android:drawablePadding="12dp" />
                     </RelativeLayout>
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F2F6FF" />
 
                     <RelativeLayout
                         android:id="@+id/layout_jiedian"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:layout_marginRight="15dp"
                         tools:ignore="DuplicateIds">
 
@@ -185,11 +239,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:drawableLeft="@mipmap/jiedian"
+                            android:drawableLeft="@mipmap/_mine_ic_team"
                             android:drawablePadding="15dp"
                             android:gravity="center"
                             android:text="我的团队"
-                            android:textColor="#666666"
+                            android:textColor="@color/color_black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -200,30 +254,35 @@
                             android:drawableRight="@mipmap/mine_icon_more"
                             android:drawablePadding="12dp" />
                     </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F2F6FF" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F2F6FF" />
 
                     <RelativeLayout
                         android:id="@+id/layout_about"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:layout_marginRight="15dp"
                         tools:ignore="DuplicateIds">
-
-                        <ImageView
-                            android:id="@+id/iv"
-                            android:layout_width="27dp"
-                            android:layout_height="27dp"
-                            android:src="@mipmap/us" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:layout_toRightOf="@+id/iv"
-                            android:layout_marginLeft="17dp"
+                            android:drawableLeft="@mipmap/mine_about"
+                            android:drawablePadding="15dp"
+                            android:gravity="center"
                             android:text="关于我们"
-                            android:textColor="#666666"
+                            android:textColor="@color/color_black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -234,14 +293,13 @@
                             android:drawableRight="@mipmap/mine_icon_more"
                             android:drawablePadding="12dp" />
                     </RelativeLayout>
-
-
                     <RelativeLayout
                         android:id="@+id/layout_setting"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="10dp"
                         tools:ignore="DuplicateIds">
@@ -250,11 +308,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:drawableLeft="@mipmap/setting"
+                            android:drawableLeft="@mipmap/_mine_ic_set"
                             android:drawablePadding="15dp"
                             android:gravity="center"
                             android:text="账号设置"
-                            android:textColor="#666666"
+                            android:textColor="@color/color_black"
                             android:textSize="16sp" />
 
                         <TextView

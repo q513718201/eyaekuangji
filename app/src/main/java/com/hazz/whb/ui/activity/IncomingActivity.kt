@@ -21,19 +21,13 @@ class IncomingActivity : BaseActivity(), TabLayout.OnTabSelectedListener, LoginC
 
 
     override fun inComing(msg: InComing) {
-
         incoming = msg
-        if (msg.fcoin_revenue != null&&msg.usdt_revenue != null) {
-            tv_total.text =BigDecimalUtil.mul( msg.usdt_revenue,"1",2)+"/"+ BigDecimalUtil.mul( msg.fcoin_revenue,"1",2)
-        }
-        if (msg.fcoin_revenue != null&&msg.usdt_revenue == null) {
-            tv_total.text ="0.00/"+BigDecimalUtil.mul( msg.fcoin_revenue,"1",2)
+
+        if (msg.usdt_revenue == null) {
+            tv_total.text =BigDecimalUtil.mul( msg.fcoin_revenue,"1",2)
         }
 
-        if (msg.fcoin_revenue == null&&msg.usdt_revenue != null) {
-            tv_total.text = BigDecimalUtil.mul( msg.usdt_revenue,"1",2)+"/0.00"
 
-        }
 
         if (msg.invitation != null) {
             tv_static.text = msg.invitation
@@ -45,15 +39,9 @@ class IncomingActivity : BaseActivity(), TabLayout.OnTabSelectedListener, LoginC
             tv_yeji.text = msg.team
         }
 
-        if (msg.yesterday_usdt != null&& msg.yesterday_fcoin!=null) {
-            tv_yesterday.text = BigDecimalUtil.mul( msg.yesterday_usdt,"1",2) + "/" + BigDecimalUtil.mul( msg.yesterday_fcoin,"1",2)
-        }
 
-        if (msg.yesterday_usdt != null&& msg.yesterday_fcoin==null) {
-            tv_yesterday.text = BigDecimalUtil.mul( msg.yesterday_usdt,"1",2) + "/" +"0.00"
-        }
-        if (msg.yesterday_usdt == null&& msg.yesterday_fcoin!=null) {
-            tv_yesterday.text ="0.00" + "/" + BigDecimalUtil.mul( msg.yesterday_fcoin,"1",2)
+        if (msg.yesterday_fcoin!=null) {
+            tv_yesterday.text =BigDecimalUtil.mul( msg.yesterday_fcoin,"1",2)
         }
 
         adapter!!.setNewData(msg.invitation_list)

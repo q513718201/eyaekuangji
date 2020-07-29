@@ -89,7 +89,7 @@
         android:gravity="center"
         android:text="退出登录"
 
-        android:background="@drawable/bg_red_solid_5dp_coner"
+        android:background="@drawable/mine_login_btn_ripple"
         android:textColor="@color/color_white"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="160dp"

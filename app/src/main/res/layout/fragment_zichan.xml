@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/bg_top02">
+        android:background="@mipmap/bg_top03">
 
 
         <TextView
@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv2"
                         android:layout_marginTop="4dp"
-                        android:text="0"
+                        android:text="0.00"
                         android:textColor="@color/home_text"
                         android:textSize="12sp" />
 
@@ -94,7 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="收益（USDT/FIL）"
+                        android:text="收益（WHB）"
                         android:textColor="@color/home_text"
                         android:textSize="12sp" />
 
@@ -104,7 +104,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv3"
                         android:layout_marginTop="4dp"
-                        android:text="0"
+                        android:text="0.00"
                         android:textColor="@color/home_text"
                         android:textSize="12sp" />
 
@@ -135,36 +135,75 @@
         android:layout_marginRight="28dp"
         android:layout_marginBottom="10dp">
 
-        <TextView
+        <LinearLayout
             android:id="@+id/rl_charge"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_centerVertical="true"
-            android:layout_weight="1"
             android:background="@drawable/bg_white_solid_5dp_coner"
-            android:drawableLeft="@mipmap/zichan_chongzhi"
+            android:layout_weight="1"
             android:gravity="center"
-            android:paddingLeft="50dp"
-            android:paddingRight="30dp"
-            android:text="充值"
-            android:textColor="@color/home_text"
-            android:textSize="16sp" />
+            android:layout_width="wrap_content"
+            android:layout_height="54dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/zichan_chongzhi"
+                />
+            <TextView
+                android:layout_marginLeft="5dp"
 
-        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="充值"
+                android:textColor="@color/home_text"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/tv_tibi"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_weight="1"
             android:background="@drawable/bg_white_solid_5dp_coner"
-            android:drawableLeft="@mipmap/zichan_tibi"
+            android:layout_weight="1"
             android:gravity="center"
-            android:paddingLeft="50dp"
-            android:paddingRight="30dp"
-            android:text="@string/tibi"
-            android:textColor="@color/home_text"
-            android:textSize="16sp" />
+            android:layout_width="wrap_content"
+            android:layout_height="54dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/zichan_tibi"
+                />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提币"
+                android:textColor="@color/home_text"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_duihuan"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/bg_white_solid_5dp_coner"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="54dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/duihuan"
+                />
+            <TextView
+              android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="兑换"
+                android:textColor="@color/home_text"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -57,7 +57,7 @@ class ModifyPwdActivity : BaseActivity(), LoginContract.LoginView {
                 return@setOnClickListener
             }
             if(et_new_pwd.text.toString().length<6||et_new_pwd_again.text.toString().length<6){
-                SToast.showText(getString(R.string.pwd_not_length))
+                SToast.showText("交易密码长度需在6~18位之间")
                 return@setOnClickListener
             }
             mLoginPresenter.resetPwd(et_old_pwd.text.toString().trim(), et_new_pwd_again.text.toString().trim())

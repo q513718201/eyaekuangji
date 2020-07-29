@@ -69,11 +69,10 @@ class LoginPresenter(view: LoginContract.LoginView) : BasePresenter<LoginContrac
 
     fun sendSMs(mobile: String) {
 
+        val login = RetrofitManager.service.sendCode(mobile,"+86")
 
-        val login = RetrofitManager.serviceSms.sendCode(mobile)
 
-
-        doRequest1(login, object :Observer<Sms>{
+        doRequest1(login, object : Observer<Sms> {
             override fun onComplete() {
                 view.sendSms("发送成功")
             }
@@ -88,7 +87,7 @@ class LoginPresenter(view: LoginContract.LoginView) : BasePresenter<LoginContrac
                 view.sendSms("发送失败")
             }
 
-        },true)
+        }, true)
 //        doRequest(login, object : Callback<Any>(view) {
 //            override fun failed(tBaseResult: BaseResult<Any>): Boolean {
 //
@@ -100,7 +99,6 @@ class LoginPresenter(view: LoginContract.LoginView) : BasePresenter<LoginContrac
 //            }
 //
 //        }, true)
-
 
 
     }
@@ -115,8 +113,8 @@ class LoginPresenter(view: LoginContract.LoginView) : BasePresenter<LoginContrac
                 Pair.create<Any, Any>("mobile", mobile),
                 Pair.create<Any, Any>("captcha", captcha),
                 Pair.create<Any, Any>("password", Utils.encryptMD5(password)),
-                Pair.create<Any, Any>("trade_password", Utils.encryptMD5(trade_password))
-
+                Pair.create<Any, Any>("trade_password", Utils.encryptMD5(trade_password)),
+                Pair.create<Any, Any>("countryCode", "86")
 
         )
 

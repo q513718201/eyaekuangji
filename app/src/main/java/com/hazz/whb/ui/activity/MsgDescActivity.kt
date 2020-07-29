@@ -35,6 +35,7 @@ class MsgDescActivity : BaseActivity(), LoginContract.MsgView {
         ToolBarCustom.newBuilder(mToolBar as Toolbar)
                 .setLeftIcon(R.mipmap.back_white)
                 .setTitle(getString(R.string.gonggao_desc))
+                .setToolBarBgRescource(R.drawable.bg_hangqing)
                 .setTitleColor(resources.getColor(R.color.color_white))
                 .setOnLeftIconClickListener { view -> finish() }
 

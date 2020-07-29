@@ -31,7 +31,7 @@ class LauncherActivity : AppCompatActivity() {
             }
         }
         setContentView(R.layout.launcher)
-        val gifDrawable = GifDrawable(resources, R.drawable.eye)
+        val gifDrawable = GifDrawable(resources, R.drawable.whb)
         gifDrawable.loopCount=1
         gif.setImageDrawable(gifDrawable)
 

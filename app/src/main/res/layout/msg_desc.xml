@@ -4,13 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/default_color"
 
     >
 
     <include
         android:id="@+id/mToolBar"
         layout="@layout/toolbar" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#F2F6FF"
+        />
 
    <LinearLayout
        android:paddingTop="26dp"
@@ -27,7 +31,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textSize="18sp"
-           android:textColor="@color/color_white"
+           android:textColor="@color/color_black"
            />
        <TextView
            android:layout_marginTop="3dp"
@@ -35,7 +39,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textSize="10sp"
-           android:textColor="#455171"
+           android:textColor="#98999A"
            />
        <TextView
            android:layout_marginTop="24dp"
@@ -43,7 +47,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textSize="12sp"
-           android:textColor="#B3BED9"
+           android:textColor="#98999A"
            />
    </LinearLayout>
 

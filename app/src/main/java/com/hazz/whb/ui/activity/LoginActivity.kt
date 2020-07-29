@@ -48,7 +48,7 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
     override fun start() {
         mTvLogin.setOnClickListener {
             if(TextUtils.isEmpty(mEtPhoneOrEmail.text.toString())){
-              SToast.showText("请输入用户名")
+              SToast.showText("请输入用户名或手机号")
                 return@setOnClickListener
             }
             if(TextUtils.isEmpty(mEtPassword.text.toString())){

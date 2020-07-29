@@ -10,21 +10,20 @@ import com.hazz.whb.base.BaseFragment
 import com.hazz.whb.events.Index
 import com.hazz.whb.mvp.contract.LoginContract
 import com.hazz.whb.mvp.model.bean.MyAsset
+import com.hazz.whb.mvp.model.bean.MyState
+import com.hazz.whb.mvp.presenter.MinePresenter
 import com.hazz.whb.mvp.presenter.ZichanPresenter
-import com.hazz.whb.ui.activity.ChargeActivity
-import com.hazz.whb.ui.activity.IncomingActivity
-import com.hazz.whb.ui.activity.TibiActivity
+import com.hazz.whb.ui.activity.*
 import com.hazz.whb.ui.adapter.ZichanAdapter
-import com.hazz.whb.utils.BigDecimalUtil
-import com.hazz.whb.utils.RxBus
-import com.hazz.whb.utils.SToast
+import com.hazz.whb.utils.*
 import com.hazz.whb.widget.RewardItemDeco
+import com.hazz.whb.widget.TipsDialog
 import com.scwang.smartrefresh.layout.util.DensityUtil
 import kotlinx.android.synthetic.main.fragment_zichan.*
 import kotlinx.android.synthetic.main.fragment_zichan.recycle_view
 
 
-class ZichanFragment : BaseFragment(), LoginContract.ZichanView {
+class ZichanFragment : BaseFragment(), LoginContract.ZichanView, LoginContract.MyStateView {
 
 
     @SuppressLint("SetTextI18n")
@@ -35,14 +34,14 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView {
             tv_touzi.text=BigDecimalUtil.mul(msg.investment.toString(),"1",5)
         }
 
-        if(msg.usdt_revenue!=null&&msg.fcoin_revenue!=null){
-            tv_shouyi.text=BigDecimalUtil.mul(msg.usdt_revenue,"1",2)+"/"+BigDecimalUtil.mul(msg.fcoin_revenue,"1",2)
-        }
-        if(msg.usdt_revenue!=null&&msg.fcoin_revenue==null){
-            tv_shouyi.text=BigDecimalUtil.mul(msg.usdt_revenue,"1",2)+"/0.00"
-        }
-        if(msg.usdt_revenue==null&&msg.fcoin_revenue!=null){
-            tv_shouyi.text="0.00/"+BigDecimalUtil.mul(msg.fcoin_revenue,"1",2)
+//        if(msg.usdt_revenue!=null&&msg.fcoin_revenue!=null){
+//            tv_shouyi.text=BigDecimalUtil.mul(msg.usdt_revenue,"1",2)+"/"+BigDecimalUtil.mul(msg.fcoin_revenue,"1",2)
+//        }
+//        if(msg.usdt_revenue!=null&&msg.fcoin_revenue==null){
+//            tv_shouyi.text=BigDecimalUtil.mul(msg.usdt_revenue,"1",2)+"/0.00"
+//        }
+        if(msg.fcoin_revenue!=null){
+            tv_shouyi.text=BigDecimalUtil.mul(msg.fcoin_revenue,"1",2)
         }
 
 
@@ -67,15 +66,76 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView {
     private var isShow=true
     private var mAdapter: ZichanAdapter?=null
     private var list: MutableList<MyAsset.AssetsBean>? = mutableListOf()
+    private var assets: List<MyAsset.AssetsBean>? = null
+    private var minePresenter: MinePresenter = MinePresenter(this)
+    private var state=0
+
     @SuppressLint("SetTextI18n")
     override fun initView() {
+
+
+
         tv_tibi.setOnClickListener {
             if(myAsset!=null){
+//                when(state){
+//                    1->{
+//                        startActivity(Intent(activity,TibiActivity::class.java).putExtra("amount",myAsset))
+//                    }
+//                    2->{
+//                        SToast.showText("实名认证审核中...")
+//                        return@setOnClickListener
+//                    }
+//                    else->{
+//
+//                        val tipsDialog = TipsDialog(activity)
+//                                .setTitle("提示")
+//                                .setContent("为了您的帐户安全,请先进行实名认证")
+//                                .tips()
+//                                .setConfirmListener {
+//                                    startActivity(Intent(activity,NameAuthActivity::class.java))
+//                                }
+//
+//                        tipsDialog.show()
+//                    }
+//                }
+
                 startActivity(Intent(activity,TibiActivity::class.java).putExtra("amount",myAsset))
+            }else{
+                SToast.showText("正在获取资产信息...")
             }
 
 
         }
+
+        ll_duihuan.setOnClickListener {
+            if(myAsset!=null){
+//                when(state){
+//                    1->{
+//                        startActivity(Intent(activity,DuihuanActivity::class.java).putExtra("amount",myAsset))
+//                    }
+//                    2->{
+//                        SToast.showText("实名认证审核中...")
+//                        return@setOnClickListener
+//                    }
+//                    else->{
+//
+//                        val tipsDialog = TipsDialog(activity)
+//                                .setTitle("提示")
+//                                .setContent("为了您的帐户安全,请先进行实名认证")
+//                                .tips()
+//                                .setConfirmListener {
+//                                    startActivity(Intent(activity,NameAuthActivity::class.java))
+//         }
+//
+//                        tipsDialog.show()
+//                    }
+//                }
+                startActivity(Intent(activity,DuihuanActivity::class.java).putExtra("amount",myAsset))
+            }else{
+                SToast.showText("正在获取资产信息...")
+            }
+        }
+
         rl_charge.setOnClickListener {
             startActivity(Intent(activity,ChargeActivity::class.java))
 
@@ -124,6 +184,31 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView {
     override fun onResume() {
         super.onResume()
         mZichanPresenter.myAsset()
+      //  minePresenter.myAsset()
+    }
+
+    override fun myState(msg: MyState) {
+        when(msg.real_name){
+            "0"->{
+                //未实名
+                state=0
+
+            }
+            "1"->{
+                //已实名
+                state=1
+
+            }
+            "2"->{
+                //审核zhong
+                state=2
+
+            }
+            "3"->{
+                state=3
+
+            }
+        }
     }
 
 

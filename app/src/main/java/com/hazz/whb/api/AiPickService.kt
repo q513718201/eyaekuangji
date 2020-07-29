@@ -1,11 +1,10 @@
 package com.hazz.whb.api
 
-import com.hazz.whb.mvp.model.Home
-import com.hazz.whb.mvp.model.Sms
-import com.hazz.whb.mvp.model.Xieyi
+import com.hazz.whb.mvp.model.*
 import com.hazz.whb.mvp.model.bean.*
 import com.hazz.whb.net.BaseResult
 import io.reactivex.Observable
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
 
@@ -22,8 +21,8 @@ interface AiPickService{
     /**
      * 获取验证码
      */
-    @GET("{mobile}")
-    fun sendCode(@Path("mobile" )mobile:String): Observable<Sms>
+    @GET("captcha/sms")
+    fun sendCode(@Query("mobile") mobile:String, @Query("countryCode")  countryCode:String): Observable<Sms>
 
     /**
      *设置资金密码
@@ -169,4 +168,38 @@ interface AiPickService{
      */
     @GET("trade/sign_records")
     fun signRecord(): Observable<BaseResult<SignRecord>>
+
+
+    /**
+     * 我的状态
+     */
+    @GET("profile")
+    fun myState(): Observable<BaseResult<MyState>>
+
+    /**
+     * 实名认证
+     */
+    @POST("trade/real_name")
+    fun auth(@Body request: RequestBody): Observable<BaseResult<Any>>
+
+    /**
+     * shiming认证
+     */
+    @POST("image")
+    @Multipart
+    fun upload(@Part file: MultipartBody.Part): Observable<BaseResult<Image>>
+
+    /**
+     * 兑换
+     */
+    @POST("trade/exchange")
+    fun duihuan(@Body request: RequestBody): Observable<BaseResult<Any>>
+
+
+
+    /**
+     * 兑换记录
+     */
+    @GET("trade/exchange_records")
+    fun duihuanRecord(): Observable<BaseResult<DuihuanRecord>>
 }

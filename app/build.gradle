@@ -53,6 +53,7 @@ android {
             abiFilters 'armeabi', 'armeabi-v7a', 'x86'
         }
     }
+
     buildTypes {
         debug {
             minifyEnabled false

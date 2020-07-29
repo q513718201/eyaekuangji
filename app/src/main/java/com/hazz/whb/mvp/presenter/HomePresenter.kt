@@ -25,7 +25,7 @@ class HomePresenter(view: LoginContract.HomeView) : BasePresenter<LoginContract.
                 view.getHome(tBaseResult.data!!)
             }
 
-        }, true)
+        }, false)
 
     }
 
@@ -48,8 +48,8 @@ class HomePresenter(view: LoginContract.HomeView) : BasePresenter<LoginContract.
 
     }
 
-    fun zuyong(coin: String, product_id: String, trade_password: String, amount: String
-               , contractor: String, mobile: String, address: String
+    fun zuyong(coin: String, product_id: String, trade_password: String
+
 
     ) {
 
@@ -58,11 +58,9 @@ class HomePresenter(view: LoginContract.HomeView) : BasePresenter<LoginContract.
 
                 Pair.create<Any, Any>("coin", coin),
                 Pair.create<Any, Any>("product_id", product_id),
-                Pair.create<Any, Any>("trade_password", Utils.encryptMD5(trade_password)),
-                Pair.create<Any, Any>("amount", amount),
-                Pair.create<Any, Any>("contractor", contractor),
-                Pair.create<Any, Any>("mobile", mobile),
-                Pair.create<Any, Any>("address", address)
+                Pair.create<Any, Any>("trade_password", Utils.encryptMD5(trade_password))
+
+
         )
 
         val login = RetrofitManager.service.zuyong(body)

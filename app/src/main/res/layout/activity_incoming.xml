@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="172dp"
-        android:background="@mipmap/bg_top02"
+        android:background="@mipmap/bg_top03"
         android:orientation="vertical">
 
         <include
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_toRightOf="@+id/iv_head"
-                android:text="总收益(USDT/FIL)"
+                android:text="总收益(WHB)"
                 android:textColor="@color/color_white"
                 android:textSize="14sp" />
 
@@ -39,7 +39,7 @@
                 android:id="@+id/tv_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="0.00"
                 android:textColor="@color/color_white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="分享收益(USDT)"
+                    android:text="分享收益(WHB)"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
@@ -88,7 +88,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="4dp"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="0"
+                    android:text="0.00"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="业绩收益(FIL)"
+                    android:text="业绩收益(WHB)"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
@@ -124,7 +124,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="4dp"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="0"
+                    android:text="0.00"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="团队收益(FIL)"
+                    android:text="团队收益(WHB)"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
@@ -166,7 +166,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="4dp"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="0"
+                    android:text="0.00"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
@@ -191,7 +191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="昨日收益(USDT/FIL)"
+                    android:text="昨日收益(WHB)"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
@@ -202,7 +202,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="4dp"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="0"
+                    android:text="0.00"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 

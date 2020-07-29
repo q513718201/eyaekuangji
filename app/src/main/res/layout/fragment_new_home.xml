@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2F6FF"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="172dp"
         android:scaleType="fitXY"
-        android:src="@mipmap/bg_top02" />
+        android:src="@mipmap/bg_top03" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,45 +32,16 @@
         android:layout_marginTop="67dp"
         android:layout_marginRight="6dp"
         android:scaleType="fitXY"
-        android:src="@mipmap/home_bg"
 
         />
 
-    <RelativeLayout
-        android:id="@+id/ll_notice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/banner"
-        android:layout_marginTop="15dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@color/color_white">
 
-        <ImageView
-            android:id="@+id/iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/ic_notice" />
 
-        <com.sunsky.marqueeview.MarqueeView
-            android:id="@+id/marqueeview"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:layout_toRightOf="@+id/iv"
-            app:animDuration="1000"
-            app:interval="2000"
-            app:isSetAlphaAnim="true" />
-
-    </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_notice"
+        android:layout_below="@+id/banner"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp">
 
@@ -77,6 +50,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/ll_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/banner"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/color_white">
+
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_notice" />
+
+                <com.sunsky.marqueeview.MarqueeView
+                    android:id="@+id/marqueeview"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toRightOf="@+id/iv"
+                    app:animDuration="1000"
+                    app:interval="2000"
+                    app:isSetAlphaAnim="true" />
+
+            </RelativeLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,7 +88,7 @@
                 android:background="@drawable/bg_white_solid_5dp_coner"
                 android:orientation="vertical"
                 android:padding="15dp"
-                android:visibility="gone">
+                >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -130,6 +134,59 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:paddingTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:drawableTop="@mipmap/ic_shop"
+                    android:drawablePadding="10dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="商城"
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:drawableTop="@mipmap/ic_bidding"
+                    android:drawablePadding="10dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="竞拍"
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:drawableTop="@mipmap/ic_live"
+                    android:drawablePadding="10dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="直播"
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:drawableTop="@mipmap/ic_game"
+                    android:drawablePadding="10dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="游戏"
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    />
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"

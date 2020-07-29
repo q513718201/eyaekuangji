@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="5dp"
+    android:background="@drawable/bg_white_solid_5dp_coner">
+
+
+    <TextView
+        android:id="@+id/tv_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_10"
+        android:textSize="@dimen/_14_text_size"
+        android:textColor="@color/color_black"
+        android:text="0.00WHB"
+        android:maxWidth="180dp"
+        />
+    <TextView
+android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_from"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_10"
+        android:textSize="@dimen/_14_text_size"
+        android:textColor="@color/blue"
+        android:text="换"
+
+        />
+    <TextView
+        android:id="@+id/tv_to"
+        android:layout_toRightOf="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_10"
+        android:textSize="@dimen/_14_text_size"
+        android:textColor="@color/color_black"
+        android:text="0.00USDT"
+        android:maxWidth="180dp"
+        />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="150dp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@id/tv_from"
+        android:textColor="@color/hintTextColor"
+        tools:text="2019-06-13 15:30:12"
+        android:layout_alignLeft="@id/tv_from"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tv_shouxu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:textSize="@dimen/_14_text_size"
+        android:textColor="#B3BED9"
+        android:paddingRight="@dimen/margin_14"
+        android:layout_below="@+id/tv_to"
+        android:gravity="end"
+        android:text="手续费"
+        />
+
+
+
+</RelativeLayout>

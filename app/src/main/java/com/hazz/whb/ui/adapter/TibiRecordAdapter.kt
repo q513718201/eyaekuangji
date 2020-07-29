@@ -36,7 +36,7 @@ class TibiRecordAdapter(layoutResId: Int, data: List<TibiRecord.ListBean>?) : Ba
         if(item.coin=="USDT"){
             helper.getView<ImageView>(R.id.iv).setImageResource(R.mipmap.usdt)
         }else{
-            helper.getView<ImageView>(R.id.iv).setImageResource(R.mipmap.eth)
+            helper.getView<ImageView>(R.id.iv).setImageResource(R.mipmap.ic_whb_20)
         }
 
     }

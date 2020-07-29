@@ -165,15 +165,11 @@ class TibiActivity : BaseActivity(), LoginContract.TibiView, TextWatcher {
             }
         }
         contentView.tv2.setOnClickListener {
-            currentName = "FIL"
-            et_coin.text = "FIL"
+            currentName = "WHB"
+            et_coin.text = "WHB"
             popWnd?.dismiss()
 
             for (coin in assets!!) {
-                if (coin.coin == "FCOIN") {
-                    avaiableAmount = coin.balance
-                    tv_lest.text = "可用" + coin.balance + currentName
-                }
                 if (coin.coin == currentName) {
                     avaiableAmount = coin.balance
                     tv_lest.text = "可用" + coin.balance + currentName

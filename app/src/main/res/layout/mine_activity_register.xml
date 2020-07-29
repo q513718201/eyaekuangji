@@ -123,7 +123,7 @@
                     android:layout_toRightOf="@id/mTvInviteCode1"
                     android:background="@null"
                     android:gravity="right"
-                    android:hint="请输入用户名"
+                    android:hint="字母加数字组成"
                     android:singleLine="true"
                     android:textColorHint="@color/hintTextColor"
 
@@ -142,6 +142,7 @@
                 android:clickable="true">
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/mTvAreaCode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -154,6 +155,7 @@
                     android:textSize="@dimen/_14_text_size" />
 
                 <ImageView
+                    android:visibility="gone"
                     android:id="@+id/mImgDrop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -171,6 +173,7 @@
                     android:background="@null"
                     android:hint="@string/mine_plz_input_phone"
                     android:inputType="text"
+                    android:layout_toLeftOf="@+id/mTvAreaCode"
                     android:maxLength="11"
                     android:paddingLeft="@dimen/margin_16"
                     android:paddingRight="@dimen/margin_16"
@@ -413,8 +416,8 @@
                 android:textColor="@color/color_white"
                 android:textSize="@dimen/_16_text_size" />
             <LinearLayout
+                android:layout_marginLeft="15dp"
                 android:layout_marginBottom="30dp"
-               android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -426,7 +429,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="我已阅读同意"
+                    android:text="我已阅读并同意"
                     android:textColor="@color/hintTextColor"
                     android:textSize="10sp" />
                 <TextView

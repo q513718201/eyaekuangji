@@ -36,7 +36,9 @@ class ZujieActivity : BaseActivity(), LoginContract.HomeView, TextWatcher, Login
         val mul = BigDecimalUtil.mul(price, rate, 4)
         val div = BigDecimalUtil.div(s.toString(), price, 4)
         val mul1 = BigDecimalUtil.mul(mul, div, 4)
-        tv_yuji.text = "预计每日收益" + BigDecimalUtil.mul(mul1, "0.7", 4) + "FIL"
+      //
+        //
+        //  tv_yuji.text = "预计每日收益" + BigDecimalUtil.mul(mul1, "0.7", 4) + "WHB"
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -93,11 +95,10 @@ class ZujieActivity : BaseActivity(), LoginContract.HomeView, TextWatcher, Login
         price = produce!!.price
         tv_name.text = produce!!.name
         tv_amount.text = BigDecimalUtil.mul(produce!!.price, "1", 4) + "USDT"
-        //tv_suanli.text = produce!!.power
+        tv_suanli.text = BigDecimalUtil.mul(produce!!.rate,"1",4)+"WHB"
         tv_time.text = produce!!.round + "天"
         rate = produce!!.rate
-
-
+        et_num.setText(BigDecimalUtil.mul(produce!!.price, "1", 4))
     }
 
     private var mPasswordDialog: SafeCheckDialog? = null
@@ -112,22 +113,22 @@ class ZujieActivity : BaseActivity(), LoginContract.HomeView, TextWatcher, Login
         mTvLogin.setOnClickListener {
             if (cb.isChecked) {
 
-                if (TextUtils.isEmpty(et_num.text.toString())) {
-                    SToast.showText("请输入数量")
-                    return@setOnClickListener
-                }
-                if (TextUtils.isEmpty(et_name.text.toString())) {
-                    SToast.showText("请输入真实姓名")
-                    return@setOnClickListener
-                }
-                if (TextUtils.isEmpty(et_phone.text.toString())) {
-                    SToast.showText("请输入手机号码")
-                    return@setOnClickListener
-                }
-                if (TextUtils.isEmpty(et_phone.text.toString())) {
-                    SToast.showText("请输入收货地址")
-                    return@setOnClickListener
-                }
+//                if (TextUtils.isEmpty(et_num.text.toString())) {
+//                    SToast.showText("请输入数量")
+//                    return@setOnClickListener
+//                }
+//                if (TextUtils.isEmpty(et_name.text.toString())) {
+//                    SToast.showText("请输入真实姓名")
+//                    return@setOnClickListener
+//                }
+//                if (TextUtils.isEmpty(et_phone.text.toString())) {
+//                    SToast.showText("请输入手机号码")
+//                    return@setOnClickListener
+//                }
+//                if (TextUtils.isEmpty(et_phone.text.toString())) {
+//                    SToast.showText("请输入收货地址")
+//                    return@setOnClickListener
+//                }
 
                 if (mPasswordDialog == null) {
                     mPasswordDialog = SafeCheckDialog(this)
@@ -139,7 +140,7 @@ class ZujieActivity : BaseActivity(), LoginContract.HomeView, TextWatcher, Login
 
                             .setConfirmListener { _, password ->
 
-                                mHomePresenter.zuyong(coin, id, password, et_num.text.toString(), et_name.text.toString(), et_phone.text.toString(), et_address.text.toString())
+                                mHomePresenter.zuyong(coin, id, password)
 
                             }.setCancelListener {
 

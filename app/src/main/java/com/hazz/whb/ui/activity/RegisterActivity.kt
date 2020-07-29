@@ -126,6 +126,10 @@ class RegisterActivity : BaseActivity(), LoginContract.LoginView, TextWatcher {
                     SToast.showText(getString(R.string.deal_login_pwd_not_null))
                     return@setOnClickListener
                 }
+                if(mEtDealPassword.text.toString().length<6||mEtDealPasswordConfirm.text.toString().length<6){
+                    SToast.showText("资金密码长度需在6~18位之间")
+                    return@setOnClickListener
+                }
                 if (mEtDealPassword.text.toString() != mEtDealPasswordConfirm.text.toString()) {
                     SToast.showText(getString(R.string.daealpwd_not_same))
                     return@setOnClickListener

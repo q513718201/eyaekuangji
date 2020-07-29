@@ -119,6 +119,14 @@ public class TipsDialog {
         return this;
     }
 
+    public TipsDialog tips() {
+        mPartLine1.setVisibility(View.GONE);
+        mBtnCancle.setVisibility(View.GONE);
+        mBtnConfirm.setText("去认证");
+
+
+        return this;
+    }
     public TipsDialog rule() {
 
         mPartLine.setVisibility(View.GONE);

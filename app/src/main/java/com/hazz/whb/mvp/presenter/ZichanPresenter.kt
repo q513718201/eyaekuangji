@@ -27,7 +27,7 @@ class ZichanPresenter(view: LoginContract.ZichanView) : BasePresenter<LoginContr
                 view.myAsset(tBaseResult.data!!)
             }
 
-        }, true)
+        }, false)
 
     }
 

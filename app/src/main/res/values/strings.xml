@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">眼球矿机</string>
+    <string name="app_name">WHB</string>
     <string name="mine_register">注册</string>
     <string name="mine_forget_password">忘记密码</string>
     <string name="mine_login">登录</string>
     <string name="mine_plz_input_password">请输入密码</string>
     <string name="mine_jump">跳过</string>
     <string name="mine_confirm_password">确认密码</string>
-    <string name="mine_deal_password_again">请再次输入资金密码</string>
+    <string name="mine_deal_password_again">请再次输入交易密码</string>
     <string name="mine_6_18_password">6~18位英文数字组合</string>
     <string name="mine_deal_password">资金密码</string>
     <string name="mine_plz_input_password_again">请再次输入密码</string>
@@ -33,7 +33,7 @@
     <string name="mine_send_success">发送成功</string>
     <string name="pwd_not_same">两次输入密码不一致</string>
     <string name="daealpwd_not_same">两次输入资金密码不一致</string>
-    <string name="login_succeed">登陆成功</string>
+    <string name="login_succeed">登录成功</string>
     <string name="zichan">资产</string>
     <string name="invite_friends">邀请好友</string>
     <string name="invite_friends_record">邀请记录</string>
@@ -49,7 +49,7 @@
     <string name="zuidatiqu">最小:100/最大:1000000</string>
     <string name="all">全部</string>
     <string name="jiaoyi_pwd">交易密码</string>
-    <string name="input_deal_pwd">请输入资金密码</string>
+    <string name="input_deal_pwd">请输入交易密码</string>
     <string name="tibi_record">提币记录</string>
     <string name="charge">充值</string>
     <string name="copy_address">复制地址</string>

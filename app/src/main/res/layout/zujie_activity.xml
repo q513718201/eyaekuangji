@@ -42,7 +42,15 @@
                 android:textColor="@color/redF4"
                 android:textSize="14sp" />
 
-
+            <TextView
+                android:id="@+id/tv_suanli"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="0WHB"
+                android:textColor="@color/color_black"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_time"
@@ -58,7 +66,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="3dp">
 
             <TextView
@@ -69,7 +77,14 @@
                 android:gravity="center"
                 android:textColor="@color/hintTextColor"
                 android:textSize="14sp" />
-
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="日产出"
+                android:gravity="center"
+                android:textColor="@color/hintTextColor"
+                android:textSize="14sp" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -109,15 +124,6 @@
                     android:textColor="@color/color_black"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/tv_yuji"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:singleLine="true"
-                    android:text="预计每日收益:0FIL"
-                    android:textColor="@color/hintTextColor"
-                    android:textSize="14sp" />
 
             </RelativeLayout>
 
@@ -134,12 +140,12 @@
                 android:layout_marginTop="14dp">
 
                 <EditText
+                    android:focusable="false"
                     android:id="@+id/et_num"
                     android:paddingLeft="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_grey_stroke_5dp_coner"
-                    android:hint="请输入数量（最低100USDT）"
                     android:singleLine="true"
                     android:inputType="numberDecimal"
                     android:textColor="@color/color_black"
@@ -180,66 +186,6 @@
 
             </RelativeLayout>
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:text="个人信息填写"
-                android:textColor="@color/color_black"
-                android:textSize="14sp" />
-            <View
-                android:layout_marginTop="9dp"
-                android:layout_width="match_parent"
-                android:layout_height="0.1dp"
-                android:background="#F2F6FF"
-                />
-            <TextView
-                android:layout_marginTop="9dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:text="租用成功公司会快递一份租用合同，请务必填写真实信息信息填写"
-                android:textColor="@color/redF4"
-                android:textSize="12sp" />
-            <EditText
-                android:id="@+id/et_name"
-                android:layout_marginTop="9dp"
-                android:paddingLeft="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="49dp"
-                android:background="@drawable/bg_grey_stroke_5dp_coner"
-                android:hint="真实姓名"
-                android:singleLine="true"
-                android:textColor="@color/color_black"
-                android:textColorHint="@color/hintTextColor"
-                android:textSize="14sp" />
-            <EditText
-                android:id="@+id/et_phone"
-                android:layout_marginTop="14dp"
-                android:paddingLeft="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="49dp"
-                android:background="@drawable/bg_grey_stroke_5dp_coner"
-                android:hint="手机号码"
-                android:singleLine="true"
-                android:textColor="@color/color_black"
-                android:textColorHint="@color/hintTextColor"
-                android:textSize="14sp" />
-            <EditText
-                android:id="@+id/et_address"
-                android:layout_marginTop="14dp"
-                android:paddingLeft="15dp"
-                android:paddingTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:background="@drawable/bg_grey_stroke_5dp_coner"
-                android:hint="收货地址"
-                android:gravity="top"
-                android:singleLine="true"
-                android:textColor="@color/color_black"
-                android:textColorHint="@color/hintTextColor"
-                android:textSize="14sp" />
             <LinearLayout
                 android:layout_marginTop="8dp"
                 android:paddingLeft="10dp"
@@ -254,7 +200,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="我已阅读同意"
+                    android:text="我已阅读并同意"
                     android:textColor="@color/color_black"
                     android:textSize="10sp" />
                 <TextView
@@ -276,6 +222,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/color_white"
                 android:gravity="center"
+                android:layout_gravity="bottom"
                 android:text="立即租用"
                 android:background="@drawable/mine_login_btn_ripple"
                 />
