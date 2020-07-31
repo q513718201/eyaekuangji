@@ -217,41 +217,44 @@ class NameAuthActivity : BaseActivity(), LoginContract.AuthView {
         }
 
         if (requestCode == PickConfig.PICK_PHOTO_DATA) {
-            when (currentImage) {
-                1 -> {
-                    val paths = data!!.getSerializableExtra(PickConfig.INTENT_IMG_LIST_SELECT) as ArrayList<String>
-                    Glide.with(this)
-                            .load(paths[0])
-                            .thumbnail(0.1f)
-                            .into(iv_upload_id1)
-                    Log.d("junjun",paths[0])
-                    iv_upload_id1_default.visibility= View.GONE
-                    mNameAuthPresenter.upload(paths[0])
+            if(data!=null){
+                when (currentImage) {
+                    1 -> {
+                        val paths = data.getSerializableExtra(PickConfig.INTENT_IMG_LIST_SELECT) as ArrayList<String>
+                        Glide.with(this)
+                                .load(paths[0])
+                                .thumbnail(0.1f)
+                                .into(iv_upload_id1)
+                        Log.d("junjun",paths[0])
+                        iv_upload_id1_default.visibility= View.GONE
+                        mNameAuthPresenter.upload(paths[0])
 
-                }
-                2 -> {
-                    val paths = data!!.getSerializableExtra(PickConfig.INTENT_IMG_LIST_SELECT) as ArrayList<String>
-                    Glide.with(this)
-                            .load(paths[0])
-                            .thumbnail(0.1f)
-                            .into(iv_upload_id2)
+                    }
+                    2 -> {
+                        val paths = data.getSerializableExtra(PickConfig.INTENT_IMG_LIST_SELECT) as ArrayList<String>
+                        Glide.with(this)
+                                .load(paths[0])
+                                .thumbnail(0.1f)
+                                .into(iv_upload_id2)
 
-                    iv_upload_id2_default.visibility= View.GONE
-                    mNameAuthPresenter.upload(paths[0])
+                        iv_upload_id2_default.visibility= View.GONE
+                        mNameAuthPresenter.upload(paths[0])
 
-                }
-                3-> {
-                    val paths = data!!.getSerializableExtra(PickConfig.INTENT_IMG_LIST_SELECT) as ArrayList<String>
-                    Glide.with(this)
-                            .load(paths[0])
-                            .thumbnail(0.1f)
-                            .into(iv_upload_id3)
+                    }
+                    3-> {
+                        val paths = data.getSerializableExtra(PickConfig.INTENT_IMG_LIST_SELECT) as ArrayList<String>
+                        Glide.with(this)
+                                .load(paths[0])
+                                .thumbnail(0.1f)
+                                .into(iv_upload_id3)
 
-                    iv_upload_id3_default.visibility= View.GONE
-                    mNameAuthPresenter.upload(paths[0])
+                        iv_upload_id3_default.visibility= View.GONE
+                        mNameAuthPresenter.upload(paths[0])
 
+                    }
                 }
             }
+
         }
 
 

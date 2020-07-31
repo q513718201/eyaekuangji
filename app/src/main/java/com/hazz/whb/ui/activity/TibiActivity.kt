@@ -139,8 +139,8 @@ class TibiActivity : BaseActivity(), LoginContract.TibiView, TextWatcher {
         }
 
         rl_choose.setOnClickListener {
-            Log.d("junjun", "点击")
-            showPop()
+
+            //showPop()
         }
     }
 

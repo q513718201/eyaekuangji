@@ -82,7 +82,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_static"
+                    android:id="@+id/tv_share"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -113,12 +113,12 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="业绩收益(WHB)"
+                    android:text="团队收益(WHB)"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_share"
+                    android:id="@+id/tv_yeji"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -155,12 +155,12 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/tv1"
-                    android:text="团队收益(WHB)"
+                    android:text="平级收益(WHB)"
                     android:textColor="@color/home_text"
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_yeji"
+                    android:id="@+id/tv_static"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

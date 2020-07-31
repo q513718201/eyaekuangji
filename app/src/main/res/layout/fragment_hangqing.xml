@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.scwang.smartrefresh.layout.SmartRefreshLayout
+    android:id="@+id/sf_refresh"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<com.scwang.smartrefresh.layout.header.ClassicsHeader
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+</com.scwang.smartrefresh.layout.header.ClassicsHeader>
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2F6FF"
@@ -53,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv2"
                         android:layout_marginTop="7dp"
-                        android:text="000"
+                        android:text="0.00"
                         android:textColor="@color/color_white"
                         android:textSize="14sp" />
 
@@ -90,7 +102,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv3"
                         android:layout_marginTop="7dp"
-                        android:text="000"
+                        android:text="0.00"
                         android:textColor="@color/color_white"
                         android:textSize="14sp" />
 
@@ -117,3 +129,10 @@
 
 
 </LinearLayout>
+
+    <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.scwang.smartrefresh.layout.footer.ClassicsFooter>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

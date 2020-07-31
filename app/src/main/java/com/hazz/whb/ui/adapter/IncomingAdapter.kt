@@ -6,6 +6,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.hazz.whb.R
 import com.hazz.whb.mvp.model.bean.InComing
+import com.hazz.whb.utils.BigDecimalUtil
 
 class IncomingAdapter(layoutResId: Int, data: List<InComing.StaticListBean>?) : BaseQuickAdapter<InComing.StaticListBean, BaseViewHolder>(layoutResId, data) {
 
@@ -17,7 +18,7 @@ class IncomingAdapter(layoutResId: Int, data: List<InComing.StaticListBean>?) : 
 
         helper.setText(R.id.tv_time, item.create_at)
 
-        helper.setText(R.id.tv_amount, "+"+item.amount+item.coin)
+        helper.setText(R.id.tv_amount, "+"+ BigDecimalUtil.mul(item.amount,"1",4)+item.coin)
 
 
     }

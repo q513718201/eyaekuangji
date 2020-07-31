@@ -42,7 +42,7 @@
                     android:id="@+id/tv_person"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00"
+                    android:text="0.00"
                     android:textColor="@color/blue"
                     android:textSize="14sp" />
 
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:text="0USDT"
+                    android:text="0.00USDT"
                     android:textColor="@color/color_white"
                     android:textSize="16sp" />
 
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:text="0USDT"
+                    android:text="0.00USDT"
                     android:textColor="@color/color_white"
                     android:textSize="16sp" />
 
@@ -216,7 +216,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:text="0USDT"
+                    android:text="0.00USDT"
                     android:textColor="@color/color_white"
                     android:textSize="16sp" />
 

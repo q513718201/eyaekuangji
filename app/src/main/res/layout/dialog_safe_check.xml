@@ -77,7 +77,7 @@
             android:text="@string/cancel"
             android:gravity="center"
             android:textSize="15sp"
-            android:textColor="#9A66FF"
+            android:textColor="@color/blue"
             android:background="@drawable/default_ripple"
             />
         <View
@@ -93,7 +93,7 @@
             android:text="@string/confirm"
             android:gravity="center"
             android:textSize="15sp"
-            android:textColor="#9A66FF"
+            android:textColor="@color/blue"
             android:background="@drawable/default_ripple"
             />
 

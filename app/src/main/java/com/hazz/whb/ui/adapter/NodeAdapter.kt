@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.hazz.whb.R
 import com.hazz.whb.mvp.model.bean.Node
 import com.hazz.whb.ui.activity.NodeSecondActivity
+import com.hazz.whb.utils.BigDecimalUtil
 
 class NodeAdapter(layoutResId: Int, data: List<Node.InviteUsersBean>?) : BaseQuickAdapter<Node.InviteUsersBean, BaseViewHolder>(layoutResId, data) {
 
@@ -23,7 +24,7 @@ class NodeAdapter(layoutResId: Int, data: List<Node.InviteUsersBean>?) : BaseQui
         }
 
         helper.setText(R.id.tv_name, item.username)
-        helper.setText(R.id.tv_amount, item.self_purchase+"USDT")
+        helper.setText(R.id.tv_amount, BigDecimalUtil.mul(item.self_purchase,"1",4)+"USDT")
 
 
         helper.itemView.setOnClickListener {

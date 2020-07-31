@@ -77,29 +77,30 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView, LoginContract.M
 
         tv_tibi.setOnClickListener {
             if(myAsset!=null){
-//                when(state){
-//                    1->{
-//                        startActivity(Intent(activity,TibiActivity::class.java).putExtra("amount",myAsset))
-//                    }
-//                    2->{
-//                        SToast.showText("实名认证审核中...")
-//                        return@setOnClickListener
-//                    }
-//                    else->{
-//
-//                        val tipsDialog = TipsDialog(activity)
-//                                .setTitle("提示")
-//                                .setContent("为了您的帐户安全,请先进行实名认证")
-//                                .tips()
-//                                .setConfirmListener {
-//                                    startActivity(Intent(activity,NameAuthActivity::class.java))
-//                                }
-//
-//                        tipsDialog.show()
-//                    }
-//                }
 
-                startActivity(Intent(activity,TibiActivity::class.java).putExtra("amount",myAsset))
+                when(state){
+                    1->{
+                        startActivity(Intent(activity,TibiActivity::class.java).putExtra("amount",myAsset))
+                    }
+                    2->{
+                        SToast.showText("实名认证审核中...")
+                        return@setOnClickListener
+                    }
+                    else->{
+
+                        val tipsDialog = TipsDialog(activity)
+                                .setTitle("提示")
+                                .setContent("为了您的帐户安全,请先进行实名认证")
+                                .tips()
+                                .setConfirmListener {
+                                    startActivity(Intent(activity,NameAuthActivity::class.java))
+                                }
+
+                        tipsDialog.show()
+                    }
+                }
+
+
             }else{
                 SToast.showText("正在获取资产信息...")
             }
@@ -109,28 +110,28 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView, LoginContract.M
 
         ll_duihuan.setOnClickListener {
             if(myAsset!=null){
-//                when(state){
-//                    1->{
-//                        startActivity(Intent(activity,DuihuanActivity::class.java).putExtra("amount",myAsset))
-//                    }
-//                    2->{
-//                        SToast.showText("实名认证审核中...")
-//                        return@setOnClickListener
-//                    }
-//                    else->{
-//
-//                        val tipsDialog = TipsDialog(activity)
-//                                .setTitle("提示")
-//                                .setContent("为了您的帐户安全,请先进行实名认证")
-//                                .tips()
-//                                .setConfirmListener {
-//                                    startActivity(Intent(activity,NameAuthActivity::class.java))
-//         }
-//
-//                        tipsDialog.show()
-//                    }
-//                }
-                startActivity(Intent(activity,DuihuanActivity::class.java).putExtra("amount",myAsset))
+                when(state){
+                    1->{
+                        startActivity(Intent(activity,DuihuanActivity::class.java).putExtra("amount",myAsset))
+                    }
+                    2->{
+                        SToast.showText("实名认证审核中...")
+                        return@setOnClickListener
+                    }
+                    else->{
+
+                        val tipsDialog = TipsDialog(activity)
+                                .setTitle("提示")
+                                .setContent("为了您的帐户安全,请先进行实名认证")
+                                .tips()
+                                .setConfirmListener {
+                                    startActivity(Intent(activity,NameAuthActivity::class.java))
+         }
+
+                        tipsDialog.show()
+                    }
+                }
+
             }else{
                 SToast.showText("正在获取资产信息...")
             }
@@ -184,7 +185,7 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView, LoginContract.M
     override fun onResume() {
         super.onResume()
         mZichanPresenter.myAsset()
-      //  minePresenter.myAsset()
+       minePresenter.myAsset()
     }
 
     override fun myState(msg: MyState) {

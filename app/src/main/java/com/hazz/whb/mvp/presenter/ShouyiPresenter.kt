@@ -11,11 +11,11 @@ import com.hazz.whb.net.RetrofitManager
 
 class ShouyiPresenter(view: LoginContract.ShouyiView) : BasePresenter<LoginContract.ShouyiView>(view) {
 
-    fun shouyi() {
+    fun shouyi(pageNum:Int,pageSize:Int) {
 
 
 
-        val login = RetrofitManager.service.inComing()
+        val login = RetrofitManager.service.inComing(pageNum,pageSize)
 
         doRequest(login, object : Callback<InComing>(view) {
             override fun failed(tBaseResult: BaseResult<InComing>): Boolean {

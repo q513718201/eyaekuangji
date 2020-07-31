@@ -12,11 +12,11 @@ import com.hazz.whb.net.RetrofitManager
 
 class KuangjiPresenter(view: LoginContract.kuangjiView) : BasePresenter<LoginContract.kuangjiView>(view) {
 
-    fun kuangji() {
+    fun kuangji(start:Int,end:Int) {
 
 
 
-        val login = RetrofitManager.service.kuangji()
+        val login = RetrofitManager.service.kuangji(start,end)
 
         doRequest(login, object : Callback<Kuangji>(view) {
             override fun failed(tBaseResult: BaseResult<Kuangji>): Boolean {

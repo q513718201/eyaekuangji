@@ -213,7 +213,7 @@
                     android:textSize="14sp"
                     android:padding="10dp"
                     android:text="@string/mine_register"
-                    android:textColor="#5390FF"
+                    android:textColor="@color/blue"
                     android:paddingTop="16dp"
                     android:background="@drawable/default_ripple"
                     />
@@ -225,7 +225,7 @@
                     android:text="@string/mine_forget_password"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
-                    android:textColor="#5390FF"
+                    android:textColor="@color/blue"
                     android:maxWidth="120dp"
                     android:paddingTop="6dp"
                     android:padding="10dp"

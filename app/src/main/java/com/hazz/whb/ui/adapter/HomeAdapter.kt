@@ -30,29 +30,29 @@ class HomeAdapter(layoutResId: Int, data: List<Home.ProductsBean>?) : BaseQuickA
         helper.setText(R.id.tv_amount, BigDecimalUtil.mul(item.price, "1", 4) + "USDT")
 
         helper.getView<TextView>(R.id.tv_zu).setOnClickListener {
-//            when(state){
-//                1->{
-//                    mContext.startActivity(Intent(mContext, ZujieActivity::class.java).putExtra("produce", item))
-//                }
-//                2->{
-//                    SToast.showText("实名认证审核中...")
-//                    return@setOnClickListener
-//                }
-//                else->{
-//
-//                    val tipsDialog = TipsDialog(mContext)
-//                            .setTitle("提示")
-//                            .setContent("为了您的帐户安全,请先进行实名认证")
-//                            .tips()
-//                            .setConfirmListener {
-//                                mContext.startActivity(Intent(mContext, NameAuthActivity::class.java))
-//                            }
-//
-//                    tipsDialog.show()
-//                }
-//            }
+            when(state){
+                1->{
+                    mContext.startActivity(Intent(mContext, ZujieActivity::class.java).putExtra("produce", item))
+                }
+                2->{
+                    SToast.showText("实名认证审核中...")
+                    return@setOnClickListener
+                }
+                else->{
 
-            mContext.startActivity(Intent(mContext, ZujieActivity::class.java).putExtra("produce", item))
+                    val tipsDialog = TipsDialog(mContext)
+                            .setTitle("提示")
+                            .setContent("为了您的帐户安全,请先进行实名认证")
+                            .tips()
+                            .setConfirmListener {
+                                mContext.startActivity(Intent(mContext, NameAuthActivity::class.java))
+                            }
+
+                    tipsDialog.show()
+                }
+            }
+
+
 
 
         }

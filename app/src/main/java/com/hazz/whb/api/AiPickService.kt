@@ -111,7 +111,7 @@ interface AiPickService{
      * 我的收益
      */
     @GET("revenue")
-    fun inComing(): Observable<BaseResult<InComing>>
+    fun inComing(@Query("pageNum")pageNum:Int,@Query("pageSize")pageSize:Int): Observable<BaseResult<InComing>>
 
     /**
      * 我的资产
@@ -141,7 +141,7 @@ interface AiPickService{
      * 矿机
      */
     @GET("trade/investment")
-    fun kuangji(): Observable<BaseResult<Kuangji>>
+    fun kuangji(@Query("pageNum")pageNum:Int,@Query("pageSize")pageSize:Int): Observable<BaseResult<Kuangji>>
 
     /**
      * 矿机明细

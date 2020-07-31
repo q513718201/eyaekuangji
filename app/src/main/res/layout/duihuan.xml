@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="0.00"
-                    android:textColor="#295EFD"
+                    android:textColor="@color/blue"
                     android:textSize="18sp" />
 
                 <TextView
@@ -262,7 +262,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="44dp"
                     android:background="@drawable/bg_blue_solid_5dp_coner"
-                    android:text="@string/tibi"
+                    android:text="立即兑换"
                     android:textColor="@color/color_white"
                     app:layout_constraintTop_toBottomOf="@+id/ll_code" />
             </LinearLayout>

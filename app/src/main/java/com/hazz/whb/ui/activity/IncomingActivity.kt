@@ -23,25 +23,25 @@ class IncomingActivity : BaseActivity(), TabLayout.OnTabSelectedListener, LoginC
     override fun inComing(msg: InComing) {
         incoming = msg
 
-        if (msg.usdt_revenue == null) {
-            tv_total.text =BigDecimalUtil.mul( msg.fcoin_revenue,"1",2)
+        if (msg.revenue != null) {
+            tv_total.text =BigDecimalUtil.mul( msg.revenue,"1",4)
         }
 
 
 
         if (msg.invitation != null) {
-            tv_static.text = msg.invitation
+            tv_share.text = BigDecimalUtil.mul(msg.invitation,"1",4)
         }
         if (msg.achievement != null) {
-            tv_share.text = msg.achievement
+            tv_static.text = BigDecimalUtil.mul(msg.achievement,"1",4)
         }
         if (msg.team != null) {
-            tv_yeji.text = msg.team
+            tv_yeji.text = BigDecimalUtil.mul(msg.team,"1",4)
         }
 
 
-        if (msg.yesterday_fcoin!=null) {
-            tv_yesterday.text =BigDecimalUtil.mul( msg.yesterday_fcoin,"1",2)
+        if (msg.yesterday!=null) {
+            tv_yesterday.text =BigDecimalUtil.mul(msg.yesterday,"1",4)
         }
 
         adapter!!.setNewData(msg.invitation_list)
@@ -79,7 +79,7 @@ class IncomingActivity : BaseActivity(), TabLayout.OnTabSelectedListener, LoginC
     }
 
 
-    private val titles: Array<String> = arrayOf("分享收益", "业绩收益", "团队收益")
+    private val titles: Array<String> = arrayOf("分享收益", "平级收益", "团队收益")
 
     private var adapter: IncomingAdapter? = null
     private var incoming: InComing? = null
@@ -122,7 +122,7 @@ class IncomingActivity : BaseActivity(), TabLayout.OnTabSelectedListener, LoginC
 
     override fun onResume() {
         super.onResume()
-        mShouyiPresenter.shouyi()
+        mShouyiPresenter.shouyi(1,10)
     }
 
 }

@@ -11,6 +11,7 @@ import com.hazz.whb.mvp.model.bean.Node
 import com.hazz.whb.mvp.model.bean.Shenfen
 import com.hazz.whb.mvp.presenter.NodePresenter
 import com.hazz.whb.ui.adapter.NodeAdapter
+import com.hazz.whb.utils.BigDecimalUtil
 import com.hazz.whb.utils.ToolBarCustom
 import com.hazz.whb.widget.RewardItemDeco
 import com.scwang.smartrefresh.layout.util.DensityUtil
@@ -25,10 +26,10 @@ class NodeActivity : BaseActivity(), LoginContract.NodeView {
     @SuppressLint("SetTextI18n")
     override fun getNode(msg: Node) {
         if(msg.direct!=null){
-            tv_person.text=msg.direct
+            tv_person.text=BigDecimalUtil.mul(msg.direct,"1",4)
         }
         if(msg.team!=null){
-            tv_team.text=msg.team
+            tv_team.text=BigDecimalUtil.mul(msg.team,"1",4)
         }
 
         val invite_users = msg.invite_users
@@ -37,17 +38,17 @@ class NodeActivity : BaseActivity(), LoginContract.NodeView {
                 if (invite_users[0] != null) {
                     type1=invite_users[0]
                     tv_name1.text = invite_users[0].username
-                    tv_amount1.text = invite_users[0].self_purchase + "USDT"
+                    tv_amount1.text = BigDecimalUtil.mul(invite_users[0].self_purchase,"1",4) + "USDT"
                 }
                 if (invite_users[1] != null) {
                     type2=invite_users[1]
                     tv_name2.text = invite_users[1].username
-                    tv_amount2.text = invite_users[1].self_purchase + "USDT"
+                    tv_amount2.text =  BigDecimalUtil.mul(invite_users[1].self_purchase,"1",4) + "USDT"
                 }
                 if (invite_users[2] != null) {
                     type3=invite_users[2]
                     tv_name3.text = invite_users[2].username
-                    tv_amount3.text = invite_users[2].self_purchase + "USDT"
+                    tv_amount3.text = BigDecimalUtil.mul(invite_users[2].self_purchase,"1",4) + "USDT"
                 }
                 val subList = invite_users.subList(3, invite_users.size )
                 mAdapter!!.setNewData(subList)
@@ -56,37 +57,37 @@ class NodeActivity : BaseActivity(), LoginContract.NodeView {
                     if (invite_users[0] != null) {
                         type1=invite_users[0]
                         tv_name1.text = invite_users[0].username
-                        tv_amount1.text = invite_users[0].self_purchase + "USDT"
+                        tv_amount1.text = BigDecimalUtil.mul(invite_users[0].self_purchase,"1",4) + "USDT"
                     }
                 }
                 if(invite_users.size==2){
                     if (invite_users[0] != null) {
                         type1=invite_users[0]
                         tv_name1.text = invite_users[0].username
-                        tv_amount1.text = invite_users[0].self_purchase + "USDT"
+                        tv_amount1.text = BigDecimalUtil.mul(invite_users[0].self_purchase,"1",4) + "USDT"
                     }
                     if (invite_users[1] != null) {
                         type2=invite_users[1]
                         tv_name2.text = invite_users[1].username
-                        tv_amount2.text = invite_users[1].self_purchase + "USDT"
+                        tv_amount2.text =BigDecimalUtil.mul( invite_users[1].self_purchase,"1",4) + "USDT"
                     }
                 }
                 if(invite_users.size==3){
                     if (invite_users[0] != null) {
                         type1=invite_users[0]
                         tv_name1.text = invite_users[0].username
-                        tv_amount1.text = invite_users[0].self_purchase + "USDT"
+                        tv_amount1.text = BigDecimalUtil.mul(invite_users[0].self_purchase,"1",4) + "USDT"
                     }
                     if (invite_users[1] != null) {
                         type2=invite_users[1]
                         tv_name2.text = invite_users[1].username
-                        tv_amount2.text = invite_users[1].self_purchase + "USDT"
+                        tv_amount2.text = BigDecimalUtil.mul(invite_users[1].self_purchase,"1",4) + "USDT"
                     }
 
                     if (invite_users[2] != null) {
                         type3=invite_users[2]
                         tv_name3.text = invite_users[2].username
-                        tv_amount3.text = invite_users[2].self_purchase + "USDT"
+                        tv_amount3.text = BigDecimalUtil.mul(invite_users[2].self_purchase,"1",4) + "USDT"
                     }
                 }
 

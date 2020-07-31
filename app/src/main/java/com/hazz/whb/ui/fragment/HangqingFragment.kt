@@ -8,30 +8,48 @@ import com.hazz.whb.mvp.model.bean.Kuangji
 import com.hazz.whb.mvp.model.bean.Mingxi
 import com.hazz.whb.mvp.presenter.KuangjiPresenter
 import com.hazz.whb.ui.adapter.CoinAdapter
+import com.hazz.whb.utils.BigDecimalUtil
 import com.hazz.whb.widget.RewardItemDeco
+import com.scwang.smartrefresh.layout.api.RefreshLayout
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.scwang.smartrefresh.layout.util.DensityUtil
 import kotlinx.android.synthetic.main.fragment_hangqing.*
 
-class HangqingFragment : BaseFragment(), LoginContract.kuangjiView {
+class HangqingFragment : BaseFragment(), LoginContract.kuangjiView, OnRefreshListener, OnLoadmoreListener {
     override fun getMingxi(msg: Mingxi) {
 
     }
 
     override fun getKuangji(msg: Kuangji) {
-
+        sf_refresh.finishLoadmore()
+        sf_refresh.finishRefresh()
         if(msg.total!=null){
-            tv_touzi.text=msg.total
+            tv_touzi.text=BigDecimalUtil.mul(msg.total,"1",4)
         }
         if(msg.yesterday!=null){
-            tv_shouyi.text=msg.yesterday
+            tv_shouyi.text=BigDecimalUtil.mul(msg.yesterday,"1",4)
         }
-        mAdapter!!.setNewData(msg.machine_list.list)
+
+        if(page==1){
+            list!!.clear()
+            list!!.addAll(msg.machine_list.list)
+            mAdapter!!.setNewData(list)
+        }else{
+            list!!.addAll(msg.machine_list.list)
+            mAdapter!!.notifyDataSetChanged()
+        }
+        if(msg.machine_list.list.size<10){
+            sf_refresh.finishLoadmoreWithNoMoreData()
+        }
+
     }
 
 
     private var mKuangjiPresenter:KuangjiPresenter= KuangjiPresenter(this)
     private var mAdapter: CoinAdapter?=null
-    private var list: MutableList<String>? = mutableListOf()
+    private var list: MutableList<Kuangji.MachineListBean.ListBean>? = mutableListOf()
+    private var page=1
     override fun getLayoutId(): Int {
         return R.layout.fragment_hangqing
     }
@@ -53,20 +71,25 @@ class HangqingFragment : BaseFragment(), LoginContract.kuangjiView {
                         0
                 )
         )
-
+        sf_refresh.setOnRefreshListener(this)
+        sf_refresh.setOnLoadmoreListener(this)
 
     }
 
     override fun lazyLoad() {
-        mKuangjiPresenter.kuangji()
+        mKuangjiPresenter.kuangji(page,10)
+    }
+
+    override fun onRefresh(refreshlayout: RefreshLayout?) {
+        page=1
+        sf_refresh.resetNoMoreData()
+        lazyLoad()
+    }
+
+    override fun onLoadmore(refreshlayout: RefreshLayout?) {
+        page++
+        lazyLoad()
     }
 
 
-
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        if(!hidden){
-            mKuangjiPresenter.kuangji()
-        }
-    }
 }

@@ -20,7 +20,6 @@ class DuihuanRecordAdapter(layoutResId: Int, data: List<DuihuanRecord.ListBean>?
         helper.setText(R.id.tv_from, item.coin_from_amount+item.coin_from)
         helper.setText(R.id.tv_to, item.coin_to_amount+item.coin_to)
         helper.setText(R.id.tv_time, item.updated_at)
-
-        //helper.setText(R.id.tv_shouxu, item.updated_at)
+       helper.setText(R.id.tv_shouxu, "手续费:"+item.fee)
     }
 }

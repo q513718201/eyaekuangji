@@ -29,11 +29,12 @@ class DuihuanActivity : BaseActivity(), TextWatcher, LoginContract.DuihuanView {
     }
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-        val div = BigDecimalUtil.div(rate, "100", 4)
-        et_usdt.setText(BigDecimalUtil.mul(s.toString(),currentRate,2))
 
-        tv_need.text = BigDecimalUtil.mul(s.toString(), shouxu, 2)
-        tv_shiji.text = BigDecimalUtil.sub(s.toString(), tv_need.text.toString(), 2)
+        val mul = BigDecimalUtil.mul(s.toString(), currentRate, 4)
+        et_usdt.setText(mul)
+
+        tv_need.text = BigDecimalUtil.mul(mul, shouxu, 4)
+        tv_shiji.text = BigDecimalUtil.sub(mul, tv_need.text.toString(), 4)
     }
 
 

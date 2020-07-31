@@ -182,7 +182,7 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
 
         mCoinPresenter.getMsg()
         mHomePresenter.getHome()
-        // minePresenter.myAsset()
+        minePresenter.myAsset()
     }
 
     private fun initBanner(list: List<String>) {
@@ -221,7 +221,7 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
 
     override fun onResume() {
         super.onResume()
-        //  minePresenter.myAsset()
+        minePresenter.myAsset()
     }
 
 
@@ -231,7 +231,7 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
             Log.d("junjun", "展示")
             mCoinPresenter.getMsg()
             mHomePresenter.getHome()
-            //  minePresenter.myAsset()
+             minePresenter.myAsset()
         }
     }
 
