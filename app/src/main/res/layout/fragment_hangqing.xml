@@ -36,6 +36,9 @@
 
 
             <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/bg_tran_solid_5dp_coner"
                 android:layout_below="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +78,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_width="0.5dp"
                     android:layout_height="30dp"
-                    android:background="@color/color_white"
+                    android:background="#F2F6FF"
                     />
                 <RelativeLayout
                     android:id="@+id/rl_shouyi"

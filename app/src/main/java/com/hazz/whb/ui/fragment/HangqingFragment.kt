@@ -91,5 +91,11 @@ class HangqingFragment : BaseFragment(), LoginContract.kuangjiView, OnRefreshLis
         lazyLoad()
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if(!hidden){
+            lazyLoad()
+        }
+    }
 
 }

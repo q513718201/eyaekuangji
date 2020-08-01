@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="合同周期"
+                android:text="挖矿周期"
                 android:textColor="@color/color_black"
                 android:textSize="14sp" />
 

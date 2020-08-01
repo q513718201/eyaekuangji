@@ -105,6 +105,13 @@ class MineFragment : BaseFragment(), LoginContract.NodeView, LoginContract.MySta
 
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if(!hidden){
+            minePresenter.myAsset()
+        }
+    }
+
 
     override fun onResume() {
         super.onResume()
