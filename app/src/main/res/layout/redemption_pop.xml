@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="345dp"
+    android:layout_height="330dp"
+    android:background="@color/color_white">
+
+    <ImageView
+        android:id="@+id/image_re"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="22dp"
+        android:src="@mipmap/ic_transfer" />
+
+    <ImageView
+        android:id="@+id/re_x"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="19dp"
+        android:src="@mipmap/err1" />
+
+    <TextView
+        android:id="@+id/tv1_re"
+        android:layout_width="36dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="22dp"
+        android:layout_toRightOf="@id/image_re"
+        android:text="赎回"
+        android:textColor="#ff151515"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/number_re"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_below="@id/tv1_re"
+        android:layout_marginLeft="57dp"
+        android:maxLines="1"
+        android:maxEms="12"
+        android:ellipsize="end"
+        android:text="订单编号：25545412"
+        android:textColor="#ff0d6e62"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="78dp"
+        android:text="转出数量"
+        android:textColor="#ff000000"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/re_sum"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="106dp"
+        android:background="@drawable/ed_bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="164dp"
+        android:text="资金密码"
+        android:textColor="#ff000000"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/re_psw"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="25dp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="192dp"
+        android:background="@drawable/ed_bg"
+        android:inputType="textPassword" />
+
+    <ImageView
+        android:id="@+id/show_psw_re"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-35dp"
+        android:layout_marginTop="210dp"
+        android:layout_toRightOf="@id/re_psw"
+        android:background="@mipmap/yinca" />
+
+    <TextView
+        android:id="@+id/re_confirm"
+        android:layout_width="300dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="29dp"
+        android:background="@drawable/re_reall"
+        android:gravity="center"
+        android:text="确认"
+        android:textColor="@color/color_white" />
+</RelativeLayout>

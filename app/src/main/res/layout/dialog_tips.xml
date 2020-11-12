@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="275dp"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/ll_normall"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/dialog_bg_top"
-        android:orientation="vertical">
+        android:orientation="vertical"
+       >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -97,5 +100,68 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rl_award"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_box_news">
+        <ImageView
+            android:id="@+id/iv_close_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:padding="15dp"
+            android:src="@mipmap/bt_close" />
+
+        <LinearLayout
+            android:id="@+id/ll_award"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="17dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新人礼包"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="恭喜您注册成功"
+                android:textColor="@color/blue"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="送您35枚/10天体验矿机~"
+                android:textColor="@color/blue"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_lingqu"
+            android:layout_below="@+id/ll_award"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/bg_blue_solid_5dp_coner"
+            android:text="领取新人礼包"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
 
 </LinearLayout>

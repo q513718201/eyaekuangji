@@ -15,85 +15,107 @@ import com.hazz.whb.net.BaseView
  */
 interface LoginContract {
 
-    interface LoginView: BaseView {
+    interface LoginView : BaseView {
 
-        fun loginSuccess(msg:UserInfo)
-        fun sendSms(msg:String)
-        fun registerSucceed(msg:String)
+        fun loginSuccess(msg: UserInfo)
+        fun sendSms(msg: String)
+        fun registerSucceed(msg: String)
     }
 
-    interface CoinView: BaseView {
+    interface CoinView : BaseView {
 
-        fun getCoin(msg:List<Coin>)
-        fun getFriends(msg:Friends)
+        fun getCoin(msg: List<Coin>)
+        fun getFriends(msg: Friends)
     }
 
-    interface MsgView: BaseView {
+    interface MsgView : BaseView {
 
-        fun getMsg(msg:List<Msg>)
+        fun getMsg(msg: List<Msg>)
 
     }
-    interface NodeView: BaseView {
 
-        fun getNode(msg:Node)
-        fun getShenfen(msg:Shenfen)
+    interface NodeView : BaseView {
+
+        fun getNode(msg: Node)
+        fun getShenfen(msg: Shenfen)
     }
 
-    interface TibiView: BaseView {
+    interface TibiView : BaseView {
 
-        fun tibiSucceed(msg:String)
-        fun tibiRecord(msg:TibiRecord)
-    }
-    interface DuihuanView: BaseView {
-
-        fun duihuanSucceed(msg:String)
-        fun duihuanRecord(msg:DuihuanRecord)
-    }
-    interface ShouyiView: BaseView {
-
-        fun inComing(msg:InComing)
-    }
-    interface kuangjiView: BaseView {
-
-        fun getKuangji(msg:Kuangji)
-        fun getMingxi(msg:Mingxi)
-    }
-    interface HomeView: BaseView {
-
-        fun getHome(msg:Home)
-        fun zuyongSucceed(msg:String)
-    }
-    interface ChargeView: BaseView {
-
-        fun getAddress(msg:Charge)
-
-        fun chargeRecord(msg:ChargeRecord)
-    }
-    interface TouziView: BaseView {
-
-        fun touziList(msg:Touzi)
-        fun touziConfirm(msg:String)
-        fun touziRecord(msg:TouziRecord)
+        fun tibiSucceed(msg: String)
+        fun tibiRecord(msg: TibiRecord)
     }
 
-    interface ZichanView: BaseView {
+    interface DuihuanView : BaseView {
 
-        fun myAsset(msg:MyAsset)
-    }
-    interface XieyiView: BaseView {
-
-        fun xieyi(msg:Xieyi)
-        fun getSignRecord(msg:SignRecord)
+        fun duihuanSucceed(msg: String)
+        fun duihuanRecord(msg: DuihuanRecord)
     }
 
-    interface MyStateView: BaseView {
+    interface ShouyiView : BaseView {
 
-        fun myState(msg:MyState)
+        fun inComing(msg: InComing)
     }
 
-    interface AuthView: BaseView {
+    interface kuangjiView : BaseView {
+
+        fun getKuangji(msg: Kuangji)
+        fun getMingxi(msg: Mingxi)
+    }
+
+    interface HomeView : BaseView {
+
+        fun getHome(msg: Home)
+        fun zuyongSucceed(msg: String)
+    }
+
+    interface ChargeView : BaseView {
+
+        fun getAddress(msg: Charge)
+
+        fun chargeRecord(msg: ChargeRecord)
+    }
+
+    interface TouziView : BaseView {
+
+        fun touziList(msg: Touzi)
+        fun touziConfirm(msg: String)
+        fun touziRecord(msg: TouziRecord)
+    }
+
+    interface ZichanView : BaseView {
+
+        fun myAsset(msg: MyAsset)
+    }
+
+    interface XieyiView : BaseView {
+
+        fun xieyi(msg: Xieyi)
+        fun getSignRecord(msg: SignRecord)
+    }
+
+    interface MyStateView : BaseView {
+
+        fun myState(msg: MyState)
+    }
+
+    interface AuthView : BaseView {
 
         fun uploadSucceed(msg: Image)
         fun authSucceed(msg: String)
+    }
+
+    /**
+     * 分红
+     */
+    interface FenhongView : BaseView {
+
+        fun timeDataSuccess(msg: List<TimeData>)
+        fun commitSuccess(msg: String)
+    }
+
+    interface CurrentInventView : BaseView {
+        fun setCurrentData(data: CurrentInventBean)
+        fun onResult(msg: String)
     }
 }

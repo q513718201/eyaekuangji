@@ -36,8 +36,9 @@
     <color name="dilaog_btn_color">#9A66FF</color>
     <color name="blue">#0D6E62</color>
     <color name="hintTextColor">#98999A</color>
-    <color name="home_text">#333333</color>
+    <color name="home_text">#FF333333</color>
     <color name="default_color">#F2F6FF</color>
     <color name="color_translucent10">#1Affffff</color>
+    <color name="color_a5">#A5A5A5</color>
 
 </resources>

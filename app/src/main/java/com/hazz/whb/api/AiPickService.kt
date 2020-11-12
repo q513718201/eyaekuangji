@@ -9,8 +9,7 @@ import okhttp3.RequestBody
 import retrofit2.http.*
 
 
-
-interface AiPickService{
+interface AiPickService {
 
     /**
      * 登陆
@@ -22,7 +21,7 @@ interface AiPickService{
      * 获取验证码
      */
     @GET("captcha/sms")
-    fun sendCode(@Query("mobile") mobile:String, @Query("countryCode")  countryCode:String): Observable<Sms>
+    fun sendCode(@Query("mobile") mobile: String, @Query("countryCode") countryCode: String): Observable<Sms>
 
     /**
      *设置资金密码
@@ -35,6 +34,7 @@ interface AiPickService{
      */
     @PUT(" reset/password")
     fun resetPwd(@Body request: RequestBody): Observable<BaseResult<Any>>
+
     /**
      * 注册
      */
@@ -52,6 +52,7 @@ interface AiPickService{
      */
     @GET("notices")
     fun getMsg(): Observable<BaseResult<List<Msg>>>
+
     /**
      * 邀请好友
      */
@@ -85,33 +86,37 @@ interface AiPickService{
      * 充值哦
      */
     @GET("trade/recharge/address")
-    fun charge(@Query("coin" )coin:String): Observable<BaseResult<Charge>>
+    fun charge(@Query("coin") coin: String): Observable<BaseResult<Charge>>
 
     /**
      * 充值记录
      */
     @GET("trade/recharge")
     fun chargeRecord(): Observable<BaseResult<ChargeRecord>>
+
     /**
      * 投资列表
      */
     @GET("trade/products")
     fun touxiList(): Observable<BaseResult<Touzi>>
+
     /**
      * 投资jilu
      */
     @GET("trade/investment")
     fun touziRecord(): Observable<BaseResult<TouziRecord>>
+
     /**
      * queren投资
      */
     @POST("trade/investment")
     fun touzi(@Body request: RequestBody): Observable<BaseResult<Any>>
+
     /**
      * 我的收益
      */
     @GET("revenue")
-    fun inComing(@Query("pageNum")pageNum:Int,@Query("pageSize")pageSize:Int): Observable<BaseResult<InComing>>
+    fun inComing(@Query("pageNum") pageNum: Int, @Query("pageSize") pageSize: Int): Observable<BaseResult<InComing>>
 
     /**
      * 我的资产
@@ -141,13 +146,13 @@ interface AiPickService{
      * 矿机
      */
     @GET("trade/investment")
-    fun kuangji(@Query("pageNum")pageNum:Int,@Query("pageSize")pageSize:Int): Observable<BaseResult<Kuangji>>
+    fun kuangji(@Query("pageNum") pageNum: Int, @Query("pageSize") pageSize: Int): Observable<BaseResult<Kuangji>>
 
     /**
      * 矿机明细
      */
     @GET("trade/statement")
-    fun mingxi(@Query("start" )start:String,@Query("end" )end:String): Observable<BaseResult<Mingxi>>
+    fun mingxi(@Query("start") start: String, @Query("end") end: String): Observable<BaseResult<Mingxi>>
 
     /**
      * 矿机
@@ -160,7 +165,7 @@ interface AiPickService{
      * 用户协议
      */
     @GET("about")
-    fun xieyi(@Query("target")target:String): Observable<BaseResult<Xieyi>>
+    fun xieyi(@Query("target") target: String): Observable<BaseResult<Xieyi>>
 
 
     /**
@@ -196,10 +201,33 @@ interface AiPickService{
     fun duihuan(@Body request: RequestBody): Observable<BaseResult<Any>>
 
 
-
     /**
      * 兑换记录
      */
     @GET("trade/exchange_records")
     fun duihuanRecord(): Observable<BaseResult<DuihuanRecord>>
+
+    /**
+     * 分红池选择时长
+     */
+    @GET("trade/capital_pool")
+    fun timeData(): Observable<BaseResult<List<TimeData>>>
+
+
+    /**
+     * 分红池新增投资
+     */
+    @POST("trade/add_capital")
+    fun addCapital(@Body request: RequestBody): Observable<BaseResult<Any>>
+
+    /**
+     * 获取当前投资
+     */
+    @GET("trade/my_capital")
+    fun getCurrentInvent(): Observable<BaseResult<CurrentInventBean>>
+    /**
+     * 赎回
+     */
+    @POST("trade/withdraw_capital")
+    fun postRedeem(@Body request: RequestBody): Observable<BaseResult<Any>>
 }

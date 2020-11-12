@@ -56,7 +56,7 @@ public class CharacterParserUtil {
 
     public static String[] pystr = new String[]{"bb", "ai", "an", "ang", "ao", "ba", "bai", "ban",
             "bang", "bao", "bei", "ben", "beng", "bi", "bian", "biao", "bie", "bin", "bing", "bo",
-            "bu", "ca", "cai", "can", "cang", "cao", "ce", "ceng", "cha", "chai", "chan", "chang",
+            "bu", "ca", "cai", "noScroll", "cang", "cao", "ce", "ceng", "cha", "chai", "chan", "chang",
             "chao", "che", "chen", "cheng", "chi", "chong", "chou", "chu", "chuai", "chuan",
             "chuang", "chui", "chun", "chuo", "ci", "cong", "cou", "cu", "cuan", "cui", "cun",
             "cuo", "da", "dai", "dan", "dang", "dao", "de", "deng", "di", "dian", "diao", "die",

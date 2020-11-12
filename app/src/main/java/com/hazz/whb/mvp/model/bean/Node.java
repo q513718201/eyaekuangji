@@ -32,6 +32,8 @@ public class Node implements Serializable{
             public String level;
             public String self_purchase;
             public String direct_purchase;
+            public String team;
+
             public List<ChildrenBean> children;
 
             public static class ChildrenBean implements Serializable{

@@ -20,6 +20,7 @@ public class MyAsset implements Serializable {
         public String usdt_to_cny_rate;
         public String fcoin_revenue;
         public String usdt_revenue;
+        public String whb_to_cny_rate;
         public String investment;
         public List<ConfigBean> config;
         public List<AssetsBean> assets;

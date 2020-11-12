@@ -12,6 +12,37 @@
         android:id="@+id/mToolBar"
         layout="@layout/toolbar" />
 
+    <FrameLayout
+        android:id="@+id/fl_tips"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#CBF5EF"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin_16"
+            android:paddingEnd="@dimen/margin_16"
+            android:text="温馨提示"
+            android:textColor="@color/blue" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|right"
+            android:paddingEnd="@dimen/margin_16"
+            android:src="@mipmap/ic_close_green" />
+    </FrameLayout>
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -20,13 +51,13 @@
         >
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:orientation="vertical">
+
             <TextView
 
                 android:layout_width="wrap_content"
@@ -50,27 +81,27 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:background="@null"
-                    android:text="USDT"
-
                     android:maxLines="1"
-                    android:textColor="@color/home_text"/>
+
+                    android:text="WHB"
+                    android:textColor="@color/home_text" />
 
                 <ImageView
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:padding="5dp"
-                    android:src="@mipmap/arrow_bottom" />
+                    android:src="@mipmap/arrow_bottom"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
             <TextView
-                android:layout_marginTop="15dp"
                 android:id="@+id/tv_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:text="@string/tibi_address"
                 android:textColor="@color/home_text"
                 android:textSize="12sp" />
@@ -87,17 +118,17 @@
                 <EditText
                     android:id="@+id/et_address"
                     android:layout_width="match_parent"
-                    android:layout_toLeftOf="@+id/tv_scan"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:background="@null"
                     android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/tv_scan"
+                    android:background="@null"
                     android:hint="@string/input_tibi_address"
                     android:maxLines="1"
                     android:padding="5dp"
                     android:singleLine="true"
                     android:textColor="@color/home_text"
-                    android:textColorHint="@color/text_color_edit_hint"
+                    android:textColorHint="@color/hintTextColor"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -139,7 +170,7 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:textColor="@color/home_text"
-                    android:textColorHint="@color/text_color_edit_hint"
+                    android:textColorHint="@color/hintTextColor"
                     android:textSize="14sp" />
 
                 <TextView
@@ -147,9 +178,9 @@
                     android:id="@+id/tv_all"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
                     android:text="@string/all"
                     android:textColor="@color/blue" />
 
@@ -190,7 +221,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
                     android:text="0"
-                    android:textColor="@color/redF4"
+                    android:textColor="@color/blue"
                     android:textSize="14sp" />
 
             </RelativeLayout>
@@ -202,7 +233,7 @@
                 android:layout_marginTop="10dp"
                 android:paddingLeft="10dp"
                 android:text="手续费为提币数量的5%"
-                android:textColor="@color/text_color_edit_hint" />
+                android:textColor="@color/hintTextColor" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -229,10 +260,19 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
                     android:text="0"
-                    android:textColor="@color/redF4"
+                    android:textColor="@color/blue"
                     android:textSize="14sp" />
 
             </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:text="@string/text_current_price"
+                android:textColor="@color/hintTextColor" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -255,7 +295,7 @@
                 android:paddingLeft="10dp"
                 android:singleLine="true"
                 android:textColor="@color/home_text"
-                android:textColorHint="@color/text_color_edit_hint"
+                android:textColorHint="@color/hintTextColor"
                 android:textSize="14sp" />
 
             <Button

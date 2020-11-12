@@ -254,4 +254,13 @@ public class BigDecimalUtil {
         BigDecimal bigDecimal = new BigDecimal(num);
         return bigDecimal.toPlainString();
     }
+
+    public static String formatString(String num, int scale) {
+        if (TextUtils.isEmpty(num)) {
+            num = "0";
+            return num;
+        }
+        BigDecimal bigDecimal = new BigDecimal(num);
+        return bigDecimal.setScale(scale, RoundingMode.HALF_DOWN).toString();
+    }
 }

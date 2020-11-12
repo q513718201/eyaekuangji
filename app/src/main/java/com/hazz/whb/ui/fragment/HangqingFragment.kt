@@ -22,34 +22,34 @@ class HangqingFragment : BaseFragment(), LoginContract.kuangjiView, OnRefreshLis
     }
 
     override fun getKuangji(msg: Kuangji) {
-        sf_refresh.finishLoadmore()
-        sf_refresh.finishRefresh()
-        if(msg.total!=null){
-            tv_touzi.text=BigDecimalUtil.mul(msg.total,"1",4)
+        sf_refresh?.finishLoadmore()
+        sf_refresh?.finishRefresh()
+        if (msg.total != null) {
+            tv_touzi?.text = BigDecimalUtil.mul(msg.total, "1", 4)
         }
-        if(msg.yesterday!=null){
-            tv_shouyi.text=BigDecimalUtil.mul(msg.yesterday,"1",4)
+        if (msg.yesterday != null) {
+            tv_shouyi?.text = BigDecimalUtil.mul(msg.yesterday, "1", 4)
         }
 
-        if(page==1){
+        if (page == 1) {
             list!!.clear()
             list!!.addAll(msg.machine_list.list)
             mAdapter!!.setNewData(list)
-        }else{
+        } else {
             list!!.addAll(msg.machine_list.list)
             mAdapter!!.notifyDataSetChanged()
         }
-        if(msg.machine_list.list.size<10){
-            sf_refresh.finishLoadmoreWithNoMoreData()
+        if (msg.machine_list.list.size < 10) {
+            sf_refresh?.finishLoadmoreWithNoMoreData()
         }
 
     }
 
 
-    private var mKuangjiPresenter:KuangjiPresenter= KuangjiPresenter(this)
-    private var mAdapter: CoinAdapter?=null
+    private var mKuangjiPresenter: KuangjiPresenter = KuangjiPresenter(this)
+    private var mAdapter: CoinAdapter? = null
     private var list: MutableList<Kuangji.MachineListBean.ListBean>? = mutableListOf()
-    private var page=1
+    private var page = 1
     override fun getLayoutId(): Int {
         return R.layout.fragment_hangqing
     }
@@ -77,11 +77,15 @@ class HangqingFragment : BaseFragment(), LoginContract.kuangjiView, OnRefreshLis
     }
 
     override fun lazyLoad() {
-        mKuangjiPresenter.kuangji(page,10)
+        mKuangjiPresenter.kuangji(page, 10)
+    }
+
+    override fun reload() {
+        mKuangjiPresenter.kuangji(page, 10)
     }
 
     override fun onRefresh(refreshlayout: RefreshLayout?) {
-        page=1
+        page = 1
         sf_refresh.resetNoMoreData()
         lazyLoad()
     }
@@ -93,7 +97,7 @@ class HangqingFragment : BaseFragment(), LoginContract.kuangjiView, OnRefreshLis
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
-        if(!hidden){
+        if (!hidden) {
             lazyLoad()
         }
     }

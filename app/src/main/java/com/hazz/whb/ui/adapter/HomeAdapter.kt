@@ -8,10 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.hazz.whb.R
 import com.hazz.whb.mvp.model.Home
-import com.hazz.whb.ui.activity.KuangjiDesc2Activity
-import com.hazz.whb.ui.activity.KuangjiDescActivity
-import com.hazz.whb.ui.activity.NameAuthActivity
-import com.hazz.whb.ui.activity.ZujieActivity
+import com.hazz.whb.ui.activity.*
 import com.hazz.whb.utils.BigDecimalUtil
 import com.hazz.whb.utils.SToast
 import com.hazz.whb.widget.TipsDialog
@@ -21,7 +18,7 @@ class HomeAdapter(layoutResId: Int, data: List<Home.ProductsBean>?) : BaseQuickA
 
     lateinit var onConfirm: (View, Int) -> Unit
     private var state=0
-
+    private var isSetpwd="0"
     override fun convert(helper: BaseViewHolder, item: Home.ProductsBean) {
 
         helper.setText(R.id.tv_name, item.name)
@@ -30,26 +27,19 @@ class HomeAdapter(layoutResId: Int, data: List<Home.ProductsBean>?) : BaseQuickA
         helper.setText(R.id.tv_amount, BigDecimalUtil.mul(item.price, "1", 4) + "USDT")
 
         helper.getView<TextView>(R.id.tv_zu).setOnClickListener {
-            when(state){
-                1->{
-                    mContext.startActivity(Intent(mContext, ZujieActivity::class.java).putExtra("produce", item))
-                }
-                2->{
-                    SToast.showText("实名认证审核中...")
-                    return@setOnClickListener
-                }
-                else->{
+            if(isSetpwd == "0"){
+                val tipsDialog = TipsDialog(mContext)
+                        .setTitle("提示")
+                        .setContent("您未设置交易密码，为了您的账户安全请立即前往设置")
+                        .setPwd()
+                        .setConfirmListener {
+                            mContext.startActivity(Intent(mContext, FindZijinPwdActivity::class.java))
+                        }
 
-                    val tipsDialog = TipsDialog(mContext)
-                            .setTitle("提示")
-                            .setContent("为了您的帐户安全,请先进行实名认证")
-                            .tips()
-                            .setConfirmListener {
-                                mContext.startActivity(Intent(mContext, NameAuthActivity::class.java))
-                            }
+                tipsDialog.show()
+            }else{
 
-                    tipsDialog.show()
-                }
+                mContext.startActivity(Intent(mContext, ZujieActivity::class.java).putExtra("produce", item))
             }
 
 
@@ -72,8 +62,9 @@ class HomeAdapter(layoutResId: Int, data: List<Home.ProductsBean>?) : BaseQuickA
 
     }
 
-    fun setState(states: Int) {
+    fun setState(states: Int, tradePasswordStatus: String) {
         state=states
+        isSetpwd=tradePasswordStatus
     }
 
 }

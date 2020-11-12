@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
 import com.hazz.whb.R
+import com.hazz.whb.base.BaseActivity
 import com.hazz.whb.events.Index
 import com.hazz.whb.ui.fragment.*
 import com.hazz.whb.utils.ActivityManager
@@ -17,7 +19,26 @@ import com.tencent.bugly.Bugly
 import kotlinx.android.synthetic.main.activity_main_ruoyu_new.*
 
 
-class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener {
+class MainActivity : BaseActivity(), RadioGroup.OnCheckedChangeListener {
+    override fun layoutId() = R.layout.activity_main_ruoyu_new
+
+    override fun initData() {
+        initFragment()
+        mRG.setOnCheckedChangeListener(this)
+        Bugly.init(this, "b2e92dff41", false)
+        RxBus.get().observerOnMain(this, Index::class.java) {
+            checkFragment(1)
+            mRbMining.isChecked = true
+        }
+    }
+
+    override fun initView() {
+
+    }
+
+    override fun start() {
+
+    }
 
 
     private lateinit var mFragments: ArrayList<Fragment>
@@ -25,33 +46,7 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener {
     /**
      * 想要去到的页面，由于需要登录，无法直接显示
      */
-    private var mWantSelectIndex = -1
-    private var mTags: String? = null
-    private var mLastClickTime: Long = 0
-
-    private var builder: AlertDialog.Builder? = null
-    private var dialog: AlertDialog? = null
     private val mHits = LongArray(2)
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_ruoyu_new)
-        // mPresenter= AppNewVersionPresenter(this)
-        initFragment()
-        mRG.setOnCheckedChangeListener(this)
-        Bugly.init(this, "b2e92dff41", false)
-        RxBus.get().observerOnMain(this,Index::class.java) {
-            checkFragment(1)
-            mRbMining.isChecked = true
-        }
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        // mPresenter.getAppVersion(SPUtils.getLanguage(this),"android")
-    }
 
 
     private fun initFragment() {
@@ -61,9 +56,20 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener {
         mFragments.add(ZichanFragment())
         mFragments.add(CoinFragment())
         mFragments.add(MineFragment())
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.mFrame, mFragments[0], mFragments[0]::class.java.simpleName)
-            .commitAllowingStateLoss()
+        viewPager.offscreenPageLimit = 2
+        viewPager.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
+            override fun getItem(position: Int): Fragment {
+                return mFragments[position]
+            }
+
+            override fun getCount(): Int {
+                return mFragments.size
+            }
+
+        }
+//        supportFragmentManager.beginTransaction()
+//                .replace(R.id.mFrame, mFragments[0], mFragments[0]::class.java.simpleName)
+//                .commitAllowingStateLoss()
 
         mRbMall.isChecked = true
         mLastSelect = 0
@@ -113,15 +119,16 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener {
         if (index == mLastSelect) {
             return
         }
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.hide(mFragments[mLastSelect])
-        val fragment = mFragments[index]
-        if (!fragment.isAdded) {
-            transaction.add(R.id.mFrame, fragment, fragment::class.java.simpleName).show(fragment)
-        } else {
-            transaction.show(fragment)
-        }
-        transaction.commitAllowingStateLoss()
+        viewPager.currentItem = index
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.detach(mFragments[mLastSelect])
+//        val fragment = mFragments[index]
+//        if (!fragment.isAdded) {
+//            transaction.add(R.id.mFrame, fragment, fragment::class.java.simpleName).attach(fragment)
+//        } else {
+//            transaction.attach(fragment)
+//        }
+//        transaction.commitAllowingStateLoss()
         mLastSelect = index
 
     }
@@ -139,7 +146,8 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener {
     }
 
     override fun onBackPressed() {
-        System.arraycopy(mHits, 1, mHits, 0, mHits.size - 1)
+        System.arraycopy(
+                mHits, 1, mHits, 0, mHits.size - 1)
         mHits[mHits.size - 1] = SystemClock.uptimeMillis()
         if (mHits[0] >= SystemClock.uptimeMillis() - 500) {
             super.onBackPressed()

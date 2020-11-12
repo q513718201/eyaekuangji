@@ -12,9 +12,6 @@ import com.hazz.whb.net.RetrofitManager
 class ZichanPresenter(view: LoginContract.ZichanView) : BasePresenter<LoginContract.ZichanView>(view) {
 
     fun myAsset() {
-
-
-
         val login = RetrofitManager.service.myAsset()
 
         doRequest(login, object : Callback<MyAsset>(view) {

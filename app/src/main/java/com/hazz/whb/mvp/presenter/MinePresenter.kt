@@ -13,9 +13,6 @@ import com.hazz.whb.net.RetrofitManager
 class MinePresenter(view: LoginContract.MyStateView) : BasePresenter<LoginContract.MyStateView>(view) {
 
     fun myAsset() {
-
-
-
         val login = RetrofitManager.service.myState()
 
         doRequest(login, object : Callback<MyState>(view) {

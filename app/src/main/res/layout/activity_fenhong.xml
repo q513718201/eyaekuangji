@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_color"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ivFhBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/eye_bg"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rlContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        >
+        <include
+            android:id="@+id/mToolBar"
+            layout="@layout/toolbar" />
+
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="28dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/mToolBar"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_black_coner4"
+            >
+            <TextView
+                android:id="@+id/tvFenHongChi"
+                android:layout_width="128dp"
+                android:layout_height="26dp"
+                android:gravity="center"
+                android:layout_marginStart="1dp"
+                android:text="分红池"
+                android:background="@drawable/bg_0ab49f_coner4"
+                android:textColor="@color/color_white"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvTouZi"
+                android:layout_width="128dp"
+                android:layout_height="26dp"
+                android:gravity="center"
+                android:text="当前投资"
+                android:layout_marginEnd="1dp"
+                android:textColor="@color/color_white"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+    <com.hazz.whb.view.NoScrollViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlContent"/>
+
+    <FrameLayout
+        android:id="@+id/mFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlContent" />
+</RelativeLayout>

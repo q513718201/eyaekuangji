@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hazz.whb.R;
@@ -18,13 +19,15 @@ public class TipsDialog {
 
     Context context;
     Dialog dialog;
-    TextView mTvTitle, mTvContent;
+    TextView mTvTitle, mTvContent,mTvLingqu;
     Button mBtnCancle;
     Button mBtnConfirm;
     LinearLayout ll_bt;
     View mPartLine;
     View mPartLine1;
-    ImageView close;
+    ImageView close,iv_close_reward;
+    LinearLayout ll_normall;
+    RelativeLayout rl_award;
     private View mViewm;
 
     public void setCancleText() {
@@ -51,24 +54,27 @@ public class TipsDialog {
         mTvTitle = (TextView) mViewm.findViewById(R.id.title);
         mTvContent = mViewm.findViewById(R.id.mTvContent);
         ll_bt = mViewm.findViewById(R.id.ll_bt);
+        ll_normall= mViewm.findViewById(R.id.ll_normall);
+        rl_award= mViewm.findViewById(R.id.rl_award);
+        mTvLingqu= mViewm.findViewById(R.id.tv_lingqu);
         mBtnConfirm = (Button) mViewm.findViewById(R.id.btn_confirm);
         mBtnCancle = (Button) mViewm.findViewById(R.id.btn_cancle);
         mPartLine = mViewm.findViewById(R.id.line_part);
         mPartLine1= mViewm.findViewById(R.id.view1);
         close = mViewm.findViewById(R.id.iv_close);
+        iv_close_reward = mViewm.findViewById(R.id.iv_close_reward);
         dialog.setContentView(mViewm);
         dialog.setCanceledOnTouchOutside(false);
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+
+        close.setOnClickListener(v -> dismiss());
+        iv_close_reward.setOnClickListener(v -> dismiss());
+        mTvLingqu.setOnClickListener(v -> dismiss());
+
         Window window = dialog.getWindow();
         //要加上设置背景，否则dialog宽高设置无作用
         window.setBackgroundDrawableResource(android.R.color.transparent);
         WindowManager.LayoutParams layoutParams = window.getAttributes();
-        layoutParams.width = DpUtils.dip2px(context, 275);
+        layoutParams.width = DpUtils.dip2px(context, 300);
         // layoutParams.height = DensityUtils.dip2px(context, 140);
         window.setAttributes(layoutParams);
         return this;
@@ -123,7 +129,18 @@ public class TipsDialog {
         mPartLine1.setVisibility(View.GONE);
         mBtnCancle.setVisibility(View.GONE);
         mBtnConfirm.setText("去认证");
+        return this;
+    }
 
+    public TipsDialog setPwd() {
+        mPartLine1.setVisibility(View.GONE);
+        mBtnCancle.setVisibility(View.GONE);
+        mBtnConfirm.setText("去设置");
+        return this;
+    }
+    public TipsDialog award() {
+        ll_normall.setVisibility(View.GONE);
+        rl_award.setVisibility(View.VISIBLE);
 
         return this;
     }

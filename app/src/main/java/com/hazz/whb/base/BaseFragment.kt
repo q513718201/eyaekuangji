@@ -37,8 +37,8 @@ abstract class BaseFragment : Fragment(), EasyPermissions.PermissionCallbacks, B
      */
 
 
-
     private var mDialog: ProgressDialog? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         return inflater.inflate(getLayoutId(), null)
@@ -63,12 +63,19 @@ abstract class BaseFragment : Fragment(), EasyPermissions.PermissionCallbacks, B
     }
 
     private fun lazyLoadDataIfPrepared() {
-        if (userVisibleHint && isViewPrepare && !hasLoadData) {
-            lazyLoad()
-            hasLoadData = true
+        if (userVisibleHint && isViewPrepare) {
+            if (!hasLoadData) {
+                lazyLoad()
+                hasLoadData = true
+            } else {
+                reload()
+            }
         }
     }
 
+    open fun reload() {
+
+    }
 
 
     /**
@@ -147,6 +154,7 @@ abstract class BaseFragment : Fragment(), EasyPermissions.PermissionCallbacks, B
     }
 
     override fun login() {
+
         SToast.showText("token已过期 请重新登陆")
         startActivity(Intent(activity, LoginActivity::class.java))
         ActivityManager.getInstance().finishOthers(LoginActivity::class.java)

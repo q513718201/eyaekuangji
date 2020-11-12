@@ -42,6 +42,7 @@
         </activity>
 
         <activity android:name="com.hazz.whb.ui.activity.MainActivity" />
+        <activity android:name="com.hazz.whb.ui.activity.FenhongActivity" />
         <activity android:name="com.hazz.whb.ui.activity.LoginActivity" />
         <activity android:name="com.hazz.whb.ui.activity.ForgetPwdActivity" />
         <activity android:name="com.hazz.whb.ui.activity.RegisterActivity" />
@@ -75,6 +76,7 @@
         <activity android:name="com.hazz.whb.ui.activity.NameAuthActivity"/>
         <activity android:name="com.hazz.whb.ui.activity.DuihuanActivity"/>
         <activity android:name="com.hazz.whb.ui.activity.DuihuanRecordActivity"/>
+        <activity android:name="com.hazz.whb.ui.activity.CustomerActivity"/>
     </application>
 
 </manifest>

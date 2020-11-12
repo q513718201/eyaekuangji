@@ -11,8 +11,10 @@ public class MyState {
 
         public String username;
         public String mobile;
-
+        public String level;
         public String profile_img;
         public String real_name;
+        public String is_first;
+        public String trade_password_status;
 
 }

@@ -3,12 +3,12 @@ package com.hazz.whb.ui.activity
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.text.Editable
-import android.text.TextUtils
-import android.text.TextWatcher
+import android.graphics.Color
+import android.text.*
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupWindow
 import androidx.appcompat.widget.Toolbar
@@ -22,6 +22,11 @@ import com.hazz.whb.utils.*
 import kotlinx.android.synthetic.main.coin_choose.view.*
 import kotlinx.android.synthetic.main.invitefriends.mToolBar
 import kotlinx.android.synthetic.main.tibi.*
+import java.math.BigDecimal
+import java.math.RoundingMode
+import android.graphics.Color.parseColor
+import android.text.style.ForegroundColorSpan
+import android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 
 
 class TibiActivity : BaseActivity(), LoginContract.TibiView, TextWatcher {
@@ -35,9 +40,12 @@ class TibiActivity : BaseActivity(), LoginContract.TibiView, TextWatcher {
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
         val div = BigDecimalUtil.div(rate, "100", 4)
+        val money = s.toString()
+        val fee = BigDecimalUtil.mul(s.toString(), div, 2)
+        tv_need.text = fee
 
-        tv_need.text = BigDecimalUtil.mul(s.toString(), div, 2)
-        tv_shiji.text = BigDecimalUtil.sub(s.toString(), tv_need.text.toString(), 2)
+        var real = BigDecimalUtil.subDecimal(money, fee).multiply(BigDecimal("0.1")).div(BigDecimal(myAsset!!.whb_to_cny_rate)).setScale(2, RoundingMode.HALF_UP).toString()
+        tv_shiji.text = real
     }
 
     override fun tibiRecord(msg: TibiRecord) {
@@ -61,7 +69,7 @@ class TibiActivity : BaseActivity(), LoginContract.TibiView, TextWatcher {
     private var mTiBiPresenter: TiBiPresenter = TiBiPresenter(this)
     private var myAsset: MyAsset? = null
     private var popWnd: PopupWindow? = null
-    private var currentName = "USDT"
+    private var currentName = "WHB"
     private var rate = "0.5%"
     private var avaiableAmount = "0"
     private var assets: List<MyAsset.AssetsBean>? = null
@@ -91,14 +99,36 @@ class TibiActivity : BaseActivity(), LoginContract.TibiView, TextWatcher {
         }
         //
         val config = myAsset!!.config
+        configMap = HashMap()
+        for (bean in config) {
+            configMap[bean.id] = bean.value
+        }
         if (config != null) {
             et_num.hint = "最小:" + config[0].value + "/" + "最大:" + config[1].value
             rate = config[2].value
         }
-
+        et_coin.text = currentName
         tv_shouxu.text = "手续费为提币数量的" + config[2].value + "%"
 
         et_num.addTextChangedListener(this)
+
+//        tv_price.text = getString(R.string.text_current_price, BigDecimalUtil.mul(myAsset!!.whb_to_cny_rate,"1"))
+        tv_tips.text = "温馨提示：提币时间为每天${getConfigValue("13")}-${getConfigValue("14")}"
+        var appendText = "￥" + BigDecimalUtil.formatString(myAsset!!.whb_to_cny_rate, 2)
+        tv_price.text = getString(R.string.text_current_price)
+        val spanString = SpannableString(appendText)
+        val span = ForegroundColorSpan(Color.parseColor("#0D6E62"))
+        spanString.setSpan(span, 0, appendText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        tv_price.append(spanString)
+        iv_close.setOnClickListener {
+            fl_tips.visibility = View.GONE
+        }
+    }
+
+    lateinit var configMap: HashMap<String, String>
+    private fun getConfigValue(id: String): String {
+        var result = configMap.get(id)
+        return result ?: ""
     }
 
     override fun start() {

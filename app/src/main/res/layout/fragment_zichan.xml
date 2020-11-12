@@ -137,21 +137,22 @@
 
         <LinearLayout
             android:id="@+id/rl_charge"
-            android:background="@drawable/bg_white_solid_5dp_coner"
-            android:layout_weight="1"
-            android:gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="54dp">
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_white_solid_5dp_coner"
+            android:gravity="center">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/zichan_chongzhi"
-                />
-            <TextView
-                android:layout_marginLeft="5dp"
+                android:src="@mipmap/zichan_chongzhi" />
 
+            <TextView
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="充值"
                 android:textColor="@color/home_text"
                 android:textSize="16sp" />
@@ -160,21 +161,22 @@
 
         <LinearLayout
             android:id="@+id/tv_tibi"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/bg_white_solid_5dp_coner"
-            android:layout_weight="1"
-            android:gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="54dp">
+            android:layout_height="54dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_white_solid_5dp_coner"
+            android:gravity="center">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/zichan_tibi"
-                />
+                android:src="@mipmap/zichan_tibi" />
+
             <TextView
-                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="提币"
                 android:textColor="@color/home_text"
                 android:textSize="16sp" />
@@ -183,21 +185,23 @@
 
         <LinearLayout
             android:id="@+id/ll_duihuan"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/bg_white_solid_5dp_coner"
-            android:layout_weight="1"
-            android:gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="54dp">
+            android:layout_height="54dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_white_solid_5dp_coner"
+            android:gravity="center"
+            android:visibility="gone">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/duihuan"
-                />
+                android:src="@mipmap/duihuan" />
+
             <TextView
-              android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="兑换"
                 android:textColor="@color/home_text"
                 android:textSize="16sp" />

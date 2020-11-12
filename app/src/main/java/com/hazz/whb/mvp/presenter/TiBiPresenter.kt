@@ -32,15 +32,14 @@ class TiBiPresenter(view: LoginContract.TibiView) : BasePresenter<LoginContract.
             }
 
             override fun success(tBaseResult: BaseResult<Any>) {
-                view.tibiSucceed(tBaseResult.msg
-                )
+                view.tibiSucceed(tBaseResult.msg)
             }
 
         }, true)
 
     }
 
-    fun tibiRecord(){
+    fun tibiRecord() {
 
 
         val login = RetrofitManager.service.tibiRecord()

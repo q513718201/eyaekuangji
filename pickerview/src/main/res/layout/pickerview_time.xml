@@ -29,7 +29,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="2018-4-18"
-            android:textColor="#5390FF"
+            android:textColor="#0D6E62"
             android:textSize="12sp" />
 
         <TextView

@@ -48,7 +48,7 @@ class TibiRecordActivity : BaseActivity(), LoginContract.TibiView {
 
 
         recycle_view.layoutManager = LinearLayoutManager(this)//创建布局管理
-        mAdapter = TibiRecordAdapter(R.layout.item_tibi, null)
+        mAdapter = TibiRecordAdapter(R.layout.item_tibi_new, null)
         recycle_view.adapter = mAdapter
         mAdapter!!.bindToRecyclerView(recycle_view)
         mAdapter!!.setEmptyView(R.layout.fragment_empty)

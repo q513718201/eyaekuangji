@@ -112,17 +112,10 @@
 
                     </RelativeLayout>
 
-                    <View
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="0.5dp"
-                        android:layout_height="30dp"
-                        android:background="@color/hintTextColor"
-                        />
                     <RelativeLayout
 
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
                         android:layout_weight="1">
 
                         <TextView
@@ -150,6 +143,37 @@
 
                     </RelativeLayout>
 
+
+                    <RelativeLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/tv4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="团队业绩"
+                            android:textColor="@color/hintTextColor"
+                            android:textSize="14sp" />
+
+                        <TextView
+
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/tv_team_yeji"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv4"
+                            android:layout_marginTop="7dp"
+                            android:text="000"
+                            android:textColor="@color/hintTextColor"
+                            android:textSize="14sp" />
+
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 

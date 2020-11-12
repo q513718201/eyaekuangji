@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_hangqing"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/mToolBar"
+        />
+    <LinearLayout
+        android:background="@color/color_white"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_marginTop="32dp"
+            android:src="@mipmap/ke_s"
+            android:layout_width="192dp"
+            android:layout_height="192dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫一扫联系客服"
+            android:textSize="12sp"
+            android:textColor="@color/hintTextColor"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+   
+</LinearLayout>

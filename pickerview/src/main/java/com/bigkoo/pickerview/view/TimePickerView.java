@@ -260,13 +260,13 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         } else if (tag.equals(TAG_START)) {
             isStart = true;
             mTv_start.setBackground(mContext.getResources().getDrawable(R.drawable.bg_blue));
-            mTv_start.setTextColor(Color.parseColor("#5390FF"));
+            mTv_start.setTextColor(Color.parseColor("#0D6E62"));
             mTv_end.setBackground(mContext.getResources().getDrawable(R.drawable.bg_gray));
             mTv_end.setTextColor(Color.parseColor("#a5b1c8"));
         } else if (tag.equals(TAG_END)) {
             isStart = false;
             mTv_end.setBackground(mContext.getResources().getDrawable(R.drawable.bg_blue));
-            mTv_end.setTextColor(Color.parseColor("#5390FF"));
+            mTv_end.setTextColor(Color.parseColor("#0D6E62"));
             mTv_start.setBackground(mContext.getResources().getDrawable(R.drawable.bg_gray));
             mTv_start.setTextColor(Color.parseColor("#a5b1c8"));
         }

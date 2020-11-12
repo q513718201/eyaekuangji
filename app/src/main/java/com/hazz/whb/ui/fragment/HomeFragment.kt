@@ -2,10 +2,9 @@ package com.hazz.whb.ui.fragment
 
 import android.content.Intent
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hazz.whb.R
 import com.hazz.whb.base.BaseFragment
@@ -16,6 +15,7 @@ import com.hazz.whb.mvp.model.bean.MyState
 import com.hazz.whb.mvp.presenter.HomePresenter
 import com.hazz.whb.mvp.presenter.MinePresenter
 import com.hazz.whb.mvp.presenter.MsgPresenter
+import com.hazz.whb.ui.activity.FenhongActivity
 import com.hazz.whb.ui.activity.MsgDescActivity
 import com.hazz.whb.ui.activity.SignRecordActivity
 import com.hazz.whb.ui.adapter.HomeAdapter
@@ -24,19 +24,20 @@ import com.hazz.whb.widget.GlideImageLoader
 import com.hazz.whb.widget.RewardItemDeco
 import com.hazz.whb.widget.TipsDialog
 import com.scwang.smartrefresh.layout.util.DensityUtil
+import com.tencent.bugly.Bugly.applicationContext
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_new_home.*
 
 class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgView, LoginContract.MyStateView {
 
-
     override fun getMsg(rows: List<Msg>) {
         if (!rows.isNullOrEmpty()) {
             viewsList!!.clear()//记得加这句话，不然可能会产生重影现象
             for (i in rows.indices) {
                 //设置滚动的单个布局
-                val moreView = LayoutInflater.from(activity).inflate(R.layout.item_view_single, null) as RelativeLayout
+
+                val moreView = View.inflate(context, R.layout.item_view_single, null)
                 //初始化布局的控件
                 val tv1 = moreView.findViewById<View>(R.id.tv_title) as TextView
                 /**
@@ -56,8 +57,8 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
                 //添加到循环滚动数组里面去
                 viewsList!!.add(moreView)
             }
-            marqueeview.setViews(viewsList)
-            marqueeview.startFlipping()
+            marqueeview?.setViews(viewsList)
+            marqueeview?.startFlipping()
         }
 
     }
@@ -93,7 +94,7 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
                 adList!!.add(a.url)
             }
 
-            initBanner(adList!!)
+
         } else {
             adListDefault!!.clear()
             adListDefault!!.add(R.mipmap.br_home01)
@@ -103,10 +104,10 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
 
 
         if (signed == 1) {//已签到
-            tv_qiandao.setBackgroundResource(R.drawable.bg_gray_solid_5dp_coner)
-            tv_qiandao.text = "今日已签到"
-            tv_qiandao.setTextColor(activity!!.resources.getColor(R.color.hintTextColor))
-            tv_qiandao.isClickable = false
+            tv_qiandao?.setBackgroundResource(R.drawable.bg_gray_solid_5dp_coner)
+            tv_qiandao?.text = "今日已签到"
+            tv_qiandao?.setTextColor(activity!!.resources.getColor(R.color.hintTextColor))
+            tv_qiandao?.isClickable = false
         }
 
         mAdapter!!.setNewData(msg.products)
@@ -148,9 +149,8 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
                         0
                 )
         )
-
+        initBanner(arrayListOf(R.mipmap.br_home02))
         ll.setOnClickListener {
-
             SToast.showText("暂未开放")
         }
 
@@ -161,7 +161,6 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
 
         tv_sign_record.setOnClickListener {
             startActivity(Intent(activity, SignRecordActivity::class.java))
-
         }
 
         tv_rule.setOnClickListener {
@@ -179,60 +178,82 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
     }
 
     override fun lazyLoad() {
-
+        minePresenter.myAsset()
         mCoinPresenter.getMsg()
         mHomePresenter.getHome()
-        minePresenter.myAsset()
     }
 
-    private fun initBanner(list: List<String>) {
+    override fun reload() {
+        super.reload()
+        minePresenter.myAsset()
+        mCoinPresenter.getMsg()
+        mHomePresenter.getHome()
+    }
 
-        banner.setImageLoader(GlideImageLoader())
-        banner.setImages(list)
+    private fun initBanner(list: List<Int>) {
+        banner?.let {
+            it.setImageLoader(GlideImageLoader())
+            it.setImages(list)
 
-        //设置banner动画效果
-        banner.setBannerAnimation(Transformer.DepthPage)
-        //设置自动轮播，默认为true
-        banner.isAutoPlay(true)
-        //设置轮播时间
-        banner.setDelayTime(3000)
-        //设置指示器位置（当banner模式中有指示器时）
-        banner.setIndicatorGravity(BannerConfig.CENTER)
-        //banner设置方法全部调用完毕时最后调用
-        banner.start()
+            //设置banner动画效果
+            it.setBannerAnimation(Transformer.DepthPage)
+            //设置自动轮播，默认为true
+            it.isAutoPlay(true)
+            //设置轮播时间
+            it.setDelayTime(3000)
+            it.setOnBannerListener{
+                bannerClick(it)
+            }
+            //设置指示器位置（当banner模式中有指示器时）
+            it.setIndicatorGravity(BannerConfig.CENTER)
+            //banner设置方法全部调用完毕时最后调用
+            it.start()
+
+        }
+
+    }
+
+    /**
+     * banner点击事件
+     */
+    private fun bannerClick(it: Int) {
+        if(it == 0){
+            startActivity(Intent(activity,FenhongActivity::class.java))
+        }
     }
 
     private fun initBannerDefault(list: List<Int>) {
+        banner?.let {
+            it.setImageLoader(GlideImageLoader())
+            it.setImages(list)
 
-        banner.setImageLoader(GlideImageLoader())
-        banner.setImages(list)
-
-        //设置banner动画效果
-        banner.setBannerAnimation(Transformer.DepthPage)
-        //设置自动轮播，默认为true
-        banner.isAutoPlay(true)
-        //设置轮播时间
-        banner.setDelayTime(3000)
-        //设置指示器位置（当banner模式中有指示器时）
-        banner.setIndicatorGravity(BannerConfig.CENTER)
-        //banner设置方法全部调用完毕时最后调用
-        banner.start()
+            //设置banner动画效果
+            it.setBannerAnimation(Transformer.DepthPage)
+            //设置自动轮播，默认为true
+            it.isAutoPlay(true)
+            //设置轮播时间
+            it.setDelayTime(3000)
+            //设置指示器位置（当banner模式中有指示器时）
+            it.setIndicatorGravity(BannerConfig.CENTER)
+            //banner设置方法全部调用完毕时最后调用
+            it.start()
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        minePresenter.myAsset()
+        marqueeview.startFlipping()
+        Log.d("junjun", "展示")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        marqueeview.stopFlipping()
     }
 
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
-        if (!hidden) {
-            Log.d("junjun", "展示")
-            mCoinPresenter.getMsg()
-            mHomePresenter.getHome()
-             minePresenter.myAsset()
-        }
     }
 
     override fun myState(msg: MyState) {
@@ -258,7 +279,13 @@ class HomeFragment : BaseFragment(), LoginContract.HomeView, LoginContract.MsgVi
 
             }
         }
-        mAdapter!!.setState(state)
+        mAdapter!!.setState(state, msg.trade_password_status)
+
+        if (msg.is_first == "1") {
+            val tipsDialog = TipsDialog(activity).award()
+            tipsDialog.show()
+        }
+
     }
 }
 

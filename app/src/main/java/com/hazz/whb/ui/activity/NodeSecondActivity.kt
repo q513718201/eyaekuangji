@@ -1,10 +1,12 @@
 package com.hazz.whb.ui.activity
 
+import android.annotation.SuppressLint
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hazz.whb.R
 import com.hazz.whb.base.BaseActivity
 import com.hazz.whb.mvp.model.bean.Node
 import com.hazz.whb.ui.adapter.NodeSecondAdapter
+import com.hazz.whb.utils.BigDecimalUtil
 import com.hazz.whb.widget.RewardItemDeco
 import com.scwang.smartrefresh.layout.util.DensityUtil
 import kotlinx.android.synthetic.main.activity_node_second.*
@@ -25,6 +27,7 @@ class NodeSecondActivity : BaseActivity() {
     private var mAdapter: NodeSecondAdapter? = null
 
     private var node: Node.InviteUsersBean?=null
+    @SuppressLint("SetTextI18n")
     override fun initView() {
         recycle_view.layoutManager = LinearLayoutManager(this)//创建布局管理
         mAdapter = NodeSecondAdapter(R.layout.item_node, null)
@@ -55,9 +58,9 @@ class NodeSecondActivity : BaseActivity() {
             "7"-> iv_type.setImageResource(R.mipmap.v7)
         }
         mTvUserName.text=node!!.username
-        tv_person.text=node!!.self_purchase
-        tv_yeji.text=node!!.direct_purchase
-
+        tv_person.text=BigDecimalUtil.mul(node!!.self_purchase,"1",4)+"USDT"
+        tv_yeji.text=BigDecimalUtil.mul(node!!.direct_purchase,"1",4)+"USDT"
+        tv_team_yeji.text=BigDecimalUtil.mul(node!!.team,"1",4)+"USDT"
 
         val invite_users = node!!.children
         if (!invite_users.isNullOrEmpty()) {

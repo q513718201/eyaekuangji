@@ -2,5 +2,5 @@
 <selector
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true" android:color="@color/pickerview_timebtn_pre" />
-    <item android:color="@color/pickerview_timebtn_nor" />
+    <item android:color="#0D6E62" />
 </selector>

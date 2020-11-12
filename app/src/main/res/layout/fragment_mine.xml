@@ -293,6 +293,37 @@
                             android:drawableRight="@mipmap/mine_icon_more"
                             android:drawablePadding="12dp" />
                     </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_customer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginRight="15dp"
+                        tools:ignore="DuplicateIds">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:drawableLeft="@mipmap/mine_customer"
+                            android:drawablePadding="15dp"
+                            android:gravity="center"
+                            android:text="联系客服"
+                            android:textColor="@color/color_black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:drawableRight="@mipmap/mine_icon_more"
+                            android:drawablePadding="12dp" />
+                    </RelativeLayout>
+
                     <RelativeLayout
                         android:id="@+id/layout_setting"
                         android:layout_width="match_parent"

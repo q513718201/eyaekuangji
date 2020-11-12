@@ -5,6 +5,7 @@ import android.content.ClipData
 import android.content.Context
 import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hazz.whb.BuildConfig
 import com.hazz.whb.R
 import com.hazz.whb.base.BaseFragment
 import com.hazz.whb.events.Index
@@ -28,32 +29,27 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView, LoginContract.M
 
     @SuppressLint("SetTextI18n")
     override fun myAsset(msg: MyAsset) {
-        myAsset=msg
-        tv_copy.text=msg.wallet_address
-        if(msg.investment!=null){
-            tv_touzi.text=BigDecimalUtil.mul(msg.investment.toString(),"1",5)
+        myAsset = msg
+        tv_copy?.text = msg.wallet_address
+        if (msg.investment != null) {
+            tv_touzi?.text = BigDecimalUtil.mul(msg.investment.toString(), "1", 5)
         }
 
-//        if(msg.usdt_revenue!=null&&msg.fcoin_revenue!=null){
-//            tv_shouyi.text=BigDecimalUtil.mul(msg.usdt_revenue,"1",2)+"/"+BigDecimalUtil.mul(msg.fcoin_revenue,"1",2)
-//        }
-//        if(msg.usdt_revenue!=null&&msg.fcoin_revenue==null){
-//            tv_shouyi.text=BigDecimalUtil.mul(msg.usdt_revenue,"1",2)+"/0.00"
-//        }
-        if(msg.fcoin_revenue!=null){
-            tv_shouyi.text=BigDecimalUtil.mul(msg.fcoin_revenue,"1",2)
+        if (msg.fcoin_revenue != null) {
+            tv_shouyi?.text = BigDecimalUtil.mul(msg.fcoin_revenue, "1", 2)
         }
 
 
         val assets = msg.assets
         list!!.clear()
-        for(coin in assets){
-            if(coin.coin!="BTC"){
+        for (coin in assets) {
+            if (coin.coin != "BTC") {
                 list!!.add(coin)
             }
         }
 
         mAdapter!!.setNewData(list)
+        minePresenter.myAsset()
     }
 
     override fun getLayoutId(): Int {
@@ -61,47 +57,37 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView, LoginContract.M
     }
 
 
-   private var mZichanPresenter:ZichanPresenter= ZichanPresenter(this)
-    private var myAsset:MyAsset?=null
-    private var isShow=true
-    private var mAdapter: ZichanAdapter?=null
+    private var mZichanPresenter: ZichanPresenter = ZichanPresenter(this)
+    private var myAsset: MyAsset? = null
+    private var mAdapter: ZichanAdapter? = null
     private var list: MutableList<MyAsset.AssetsBean>? = mutableListOf()
-    private var assets: List<MyAsset.AssetsBean>? = null
     private var minePresenter: MinePresenter = MinePresenter(this)
-    private var state=0
-
+    private var state = 0
+    private var isSetpwd = if (BuildConfig.DEBUG) "1" else "0"
     @SuppressLint("SetTextI18n")
     override fun initView() {
 
 
-
         tv_tibi.setOnClickListener {
-            if(myAsset!=null){
+            if (myAsset != null) {
 
-                when(state){
-                    1->{
-                        startActivity(Intent(activity,TibiActivity::class.java).putExtra("amount",myAsset))
-                    }
-                    2->{
-                        SToast.showText("实名认证审核中...")
-                        return@setOnClickListener
-                    }
-                    else->{
+                if (isSetpwd == "0") {
+                    val tipsDialog = TipsDialog(activity)
+                            .setTitle("提示")
+                            .setContent("您未设置交易密码，为了您的账户安全请立即前往设置")
+                            .setPwd()
+                            .setConfirmListener {
+                                startActivity(Intent(activity, FindZijinPwdActivity::class.java))
+                            }
 
-                        val tipsDialog = TipsDialog(activity)
-                                .setTitle("提示")
-                                .setContent("为了您的帐户安全,请先进行实名认证")
-                                .tips()
-                                .setConfirmListener {
-                                    startActivity(Intent(activity,NameAuthActivity::class.java))
-                                }
+                    tipsDialog.show()
+                } else {
+                    startActivity(Intent(activity, TibiActivity::class.java).putExtra("amount", myAsset))
 
-                        tipsDialog.show()
-                    }
                 }
 
 
-            }else{
+            } else {
                 SToast.showText("正在获取资产信息...")
             }
 
@@ -109,43 +95,59 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView, LoginContract.M
         }
 
         ll_duihuan.setOnClickListener {
-            if(myAsset!=null){
-                when(state){
-                    1->{
-                        startActivity(Intent(activity,DuihuanActivity::class.java).putExtra("amount",myAsset))
-                    }
-                    2->{
-                        SToast.showText("实名认证审核中...")
-                        return@setOnClickListener
-                    }
-                    else->{
+            if (myAsset != null) {
+                if (isSetpwd == "0") {
+                    val tipsDialog = TipsDialog(activity)
+                            .setTitle("提示")
+                            .setContent("您未设置交易密码，为了您的账户安全请立即前往设置")
+                            .setPwd()
+                            .setConfirmListener {
+                                startActivity(Intent(activity, FindZijinPwdActivity::class.java))
+                            }
 
-                        val tipsDialog = TipsDialog(activity)
-                                .setTitle("提示")
-                                .setContent("为了您的帐户安全,请先进行实名认证")
-                                .tips()
-                                .setConfirmListener {
-                                    startActivity(Intent(activity,NameAuthActivity::class.java))
-         }
+                    tipsDialog.show()
+                } else {
 
-                        tipsDialog.show()
+                    when (state) {
+                        1 -> {
+                            startActivity(Intent(activity, DuihuanActivity::class.java).putExtra("amount", myAsset))
+
+                        }
+                        2 -> {
+                            SToast.showText("实名认证审核中...")
+                            return@setOnClickListener
+                        }
+                        else -> {
+
+                            val tipsDialog = TipsDialog(activity)
+                                    .setTitle("提示")
+                                    .setContent("为了您的帐户安全,请先进行实名认证")
+                                    .tips()
+                                    .setConfirmListener {
+                                        startActivity(Intent(activity, NameAuthActivity::class.java))
+                                    }
+
+                            tipsDialog.show()
+                        }
                     }
+
                 }
 
-            }else{
+
+            } else {
                 SToast.showText("正在获取资产信息...")
             }
         }
 
         rl_charge.setOnClickListener {
-            startActivity(Intent(activity,ChargeActivity::class.java))
+            startActivity(Intent(activity, ChargeActivity::class.java))
 
         }
         rl_touzi.setOnClickListener {
-           RxBus.get().send(Index())
+            RxBus.get().send(Index())
         }
         rl_shouyi.setOnClickListener {
-            startActivity(Intent(activity,IncomingActivity::class.java))
+            startActivity(Intent(activity, IncomingActivity::class.java))
         }
         tv_copy.setOnClickListener {
             val cm = activity!!.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
@@ -174,39 +176,37 @@ class ZichanFragment : BaseFragment(), LoginContract.ZichanView, LoginContract.M
         )
 
 
-
-
     }
 
     override fun lazyLoad() {
-
+        mZichanPresenter.myAsset()
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun reload() {
+        super.reload()
         mZichanPresenter.myAsset()
-       minePresenter.myAsset()
     }
 
     override fun myState(msg: MyState) {
-        when(msg.real_name){
-            "0"->{
+        isSetpwd = msg.trade_password_status
+        when (msg.real_name) {
+            "0" -> {
                 //未实名
-                state=0
+                state = 0
 
             }
-            "1"->{
+            "1" -> {
                 //已实名
-                state=1
+                state = 1
 
             }
-            "2"->{
+            "2" -> {
                 //审核zhong
-                state=2
+                state = 2
 
             }
-            "3"->{
-                state=3
+            "3" -> {
+                state = 3
 
             }
         }
